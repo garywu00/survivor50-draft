@@ -30,9 +30,9 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.7rem,6vw,3.1rem);font-weight:900
 .ep-dot{width:6px;height:6px;background:var(--fire);border-radius:50%;animation:pulse 1.5s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.65)}}
 
-/* MERGE BANNER */
-.merge-banner{background:linear-gradient(135deg,rgba(255,215,0,.1),rgba(255,107,26,.07));border:1px solid rgba(255,215,0,.3);border-radius:var(--r);padding:11px 18px;margin:14px 0 22px;text-align:center;font-size:.8rem;font-weight:600;color:var(--gold);letter-spacing:.05em}
-.merge-banner span{opacity:.65;font-size:.73rem;font-weight:400;display:block;margin-top:3px;color:var(--text-dim)}
+/* STATUS BANNER */
+.status-banner{background:linear-gradient(135deg,rgba(255,215,0,.1),rgba(255,107,26,.07));border:1px solid rgba(255,215,0,.3);border-radius:var(--r);padding:11px 18px;margin:14px 0 22px;text-align:center;font-size:.8rem;font-weight:600;color:var(--gold);letter-spacing:.05em}
+.status-banner span{opacity:.65;font-size:.73rem;font-weight:400;display:block;margin-top:3px;color:var(--text-dim)}
 
 /* TABS */
 .tabs{display:flex;gap:3px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:4px;margin-bottom:22px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
@@ -41,8 +41,7 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.7rem,6vw,3.1rem);font-weight:900
 .tab-btn .ti{font-size:.95rem}
 .tab-btn:hover{color:var(--text);background:var(--surface2)}
 .tab-btn.active{background:linear-gradient(135deg,rgba(139,37,0,.85),rgba(255,107,26,.55));color:var(--gold)}
-.tab-pane{display:none}
-.tab-pane.active{display:block}
+.tab-pane{display:none}.tab-pane.active{display:block}
 
 /* SEC LABEL */
 .sec-label{font-family:'Cinzel',serif;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--fire-light);margin-bottom:13px;display:flex;align-items:center;gap:10px}
@@ -65,8 +64,8 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.7rem,6vw,3.1rem);font-weight:900
 .leader-name{font-weight:700;font-size:.98rem;color:var(--text)}
 .picks-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
 .p-chip{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:3px 9px 3px 4px;font-size:.7rem;font-weight:500;color:var(--text-dim)}
-.p-chip.gone{opacity:.4;text-decoration:line-through;text-decoration-color:var(--fire)}
-.p-chip img{width:22px;height:22px;border-radius:50%;object-fit:cover;object-position:top;flex-shrink:0;background:rgba(255,107,26,.15)}
+.p-chip.gone{opacity:.38;text-decoration:line-through;text-decoration-color:var(--fire)}
+.p-chip img{width:22px;height:22px;border-radius:50%;object-fit:cover;object-position:top;flex-shrink:0}
 .av-sm{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;font-weight:700;color:var(--fire);background:rgba(255,107,26,.15);border:1px solid rgba(255,107,26,.2);flex-shrink:0}
 .score-col{text-align:right}
 .score-num{font-family:'Cinzel',serif;font-size:1.5rem;font-weight:900;color:var(--fire-light);line-height:1}
@@ -80,7 +79,7 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.7rem,6vw,3.1rem);font-weight:900
 .sc-total{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:900;color:var(--fire-light)}
 .sc-picks{padding:9px 8px;display:flex;flex-direction:column;gap:5px}
 .sc-row{display:grid;grid-template-columns:42px 1fr auto auto;align-items:center;gap:9px;padding:7px 8px;background:rgba(255,255,255,.03);border-radius:8px}
-.sc-row.gone{opacity:.48}
+.sc-row.gone{opacity:.45}
 .sc-row img,.av-sq{width:38px;height:38px;border-radius:8px;object-fit:cover;object-position:top;background:rgba(255,107,26,.1);border:1px solid rgba(255,107,26,.15);flex-shrink:0}
 .av-sq{display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;color:var(--fire)}
 .sc-pname{font-weight:600;font-size:.88rem;color:var(--text)}
@@ -99,16 +98,18 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.7rem,6vw,3.1rem);font-weight:900
 @media(max-width:380px){.cast-grid{grid-template-columns:repeat(3,1fr)}}
 .cast-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .2s}
 .cast-card:hover{border-color:var(--border-hi);transform:translateY(-2px)}
-.cast-card.gone{opacity:.33;filter:grayscale(.7)}
+.cast-card.gone{opacity:.32;filter:grayscale(.72)}
 .cast-card.gone:hover{transform:none}
 .c-img-wrap{position:relative;aspect-ratio:3/4;background:rgba(255,107,26,.07);overflow:hidden}
 .c-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .3s}
 .cast-card:not(.gone):hover .c-img-wrap img{transform:scale(1.05)}
 .c-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:linear-gradient(160deg,rgba(255,107,26,.06),rgba(0,0,0,.2))}
-.c-placeholder .big-init{font-family:'Cinzel',serif;font-size:2.2rem;font-weight:700;color:var(--fire);opacity:.55}
-.gone-banner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.25)}
+.big-init{font-family:'Cinzel',serif;font-size:2.2rem;font-weight:700;color:var(--fire);opacity:.55}
+.gone-banner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.22)}
 .snuffed{background:rgba(139,37,0,.9);color:#FF9980;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:5px;border:1px solid rgba(255,107,26,.5)}
-.tribe-dot{position:absolute;top:6px;left:6px;width:9px;height:9px;border-radius:50%;border:2px solid rgba(0,0,0,.6);box-shadow:0 0 4px rgba(0,0,0,.5)}
+.tribe-dot{position:absolute;top:6px;left:6px;width:9px;height:9px;border-radius:50%;border:2px solid rgba(0,0,0,.6)}
+/* Post-merge all one tribe — show gold for merged */
+.t-merged{background:var(--gold)}
 .t-cila{background:#FF6B1A}.t-kalo{background:#3B82F6}.t-vatu{background:#22C55E}
 .c-info{padding:8px 8px 10px}
 .c-name{font-weight:700;font-size:.76rem;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -133,6 +134,7 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.7rem,6vw,3.1rem);font-weight:900
 .ev-swap{background:rgba(74,222,128,.08);color:#86EFAC;border:1px solid rgba(74,222,128,.22)}
 .ev-immunity{background:rgba(167,139,250,.1);color:#C4B5FD;border:1px solid rgba(167,139,250,.27)}
 .ev-note{background:rgba(255,255,255,.04);color:var(--text-dim);border:1px solid rgba(255,255,255,.09)}
+.ev-merge{background:rgba(255,215,0,.12);color:var(--gold);border:1px solid rgba(255,215,0,.3)}
 
 /* SCORING KEY */
 .key-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;max-width:600px;margin:0 auto}
@@ -144,10 +146,6 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.7rem,6vw,3.1rem);font-weight:900
 .kpts{font-family:'Cinzel',serif;font-size:.95rem;font-weight:700;color:var(--gold);white-space:nowrap}
 .key-note{text-align:center;font-size:.75rem;color:var(--text-muted);margin-top:13px;font-style:italic}
 .divider{border:none;border-top:1px solid rgba(255,107,26,.11);margin:22px 0}
-
-/* LOADING SHIMMER */
-.shimmer{background:linear-gradient(110deg,rgba(255,107,26,.04) 30%,rgba(255,107,26,.1) 50%,rgba(255,107,26,.04) 70%);background-size:200% 100%;animation:sh 1.4s linear infinite}
-@keyframes sh{to{background-position:-200% 0}}
 </style>
 </head>
 <body>
@@ -157,12 +155,12 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.7rem,6vw,3.1rem);font-weight:900
   <div class="torch">🔥</div>
   <h1>SURVIVOR 50</h1>
   <div class="subtitle">In the Hands of the Fans · Draft Tracker</div>
-  <div class="ep-pill"><span class="ep-dot"></span>Episode 5 of 13 · Mar 25, 2026</div>
+  <div class="ep-pill"><span class="ep-dot"></span>Episode 6 of 13 · Apr 1, 2026</div>
 </header>
 
-<div class="merge-banner">
-  🏝️ THE MERGE IS NEXT — Ep 6 "The Blood Moon" · April 1, 2026
-  <span>17 players remain · 7 eliminated (incl. 1 medevac)</span>
+<div class="status-banner">
+  🩸 THE BLOOD MOON — Merge complete · 14 players remain · Jury begins Ep 7
+  <span>Ep 7 airs April 8 · Triple elimination sent Kamilla, Genevieve & Colby home pre-jury</span>
 </div>
 
 <nav class="tabs">
@@ -185,7 +183,6 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.7rem,6vw,3.1rem);font-weight:900
 const SC={perEp:2,imm:5,findIdol:10,playIdol:10,reward:3,merge:10,jury:5,final5:10,final3:15,runnerUp:20,win:50,firstBoot:-5,idolPocket:-5,fire:10,boomerang:15};
 const BM={first_boot:SC.firstBoot,imm:SC.imm,find_idol:SC.findIdol,play_idol:SC.playIdol,reward:SC.reward,merge:SC.merge,jury:SC.jury,final5:SC.final5,final3:SC.final3,runner_up:SC.runnerUp,winner:SC.win,fire:SC.fire,boomerang:SC.boomerang};
 
-// ── DRAFTERS ──────────────────────────────────────────────────
 const DRAFTERS=[
   {name:"Gary",    picks:["Ozzy","Aubry","Tiffany"]},
   {name:"Ajan",    picks:["Cirie","Savannah","Kamilla"]},
@@ -196,94 +193,46 @@ const DRAFTERS=[
   {name:"Ray",     picks:["Chrissy","Mike","Stephenie"]},
 ];
 
-// ── CAST DATA (updated through Ep5) ──────────────────────────
+// ── CAST — updated through Episode 6 ─────────────────────────
+// Ep 6: merge at 17. Kamilla, Genevieve, Colby voted out (pre-jury, NO jury bonus).
+// Ozzy & Rizo safe on Exile Island — they survive ep 6 = 6 eps each.
+// All 14 survivors get merge bonus (+10) and survive 6 eps total.
+// Triple-elim players survived 5 full eps before ep6 tribal = 5 eps.
+// Immunity wins ep6: Stephenie, Dee, Christian (individual immunity).
 const CAST=[
-  {id:"joe",       name:"Joe",       full:"Joe Hunter",            tribe:"kalo",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:[]},
-  {id:"savannah",  name:"Savannah",  full:"Savannah Louie",        tribe:"cila",status:"eliminated",epOut:2,   elimType:"voted",  eps:1,bonuses:[]},
-  {id:"christian", name:"Christian", full:"Christian Hubicki",     tribe:"vatu",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:["reward"]},
-  {id:"cirie",     name:"Cirie",     full:"Cirie Fields",          tribe:"cila",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:[]},
-  {id:"ozzy",      name:"Ozzy",      full:"Ozzy Lusth",            tribe:"vatu",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:[]},
-  {id:"emily",     name:"Emily",     full:"Emily Flippen",         tribe:"vatu",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:[]},
-  {id:"rick",      name:"Rick",      full:"Rick Devens",           tribe:"cila",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:["find_idol"]},
-  {id:"jenna",     name:"Jenna",     full:"Jenna Lewis-Dougherty", tribe:"cila",status:"eliminated",epOut:1,   elimType:"voted",  eps:0,bonuses:["first_boot"]},
-  {id:"kyle",      name:"Kyle",      full:"Kyle Fraser",           tribe:"kalo",status:"medevac",   epOut:1,   elimType:"medevac",eps:0,bonuses:[]},
-  {id:"chrissy",   name:"Chrissy",   full:"Chrissy Hofbeck",       tribe:"kalo",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:[]},
-  {id:"mike",      name:"Mike",      full:"Mike White",            tribe:"kalo",status:"eliminated",epOut:4,   elimType:"voted",  eps:3,bonuses:[]},
-  {id:"tiffany",   name:"Tiffany",   full:"Tiffany Ervin",         tribe:"kalo",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:[]},
-  {id:"dee",       name:"Dee",       full:"Dee Valladares",        tribe:"cila",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:[]},
-  {id:"jonathan",  name:"Jonathan",  full:"Jonathan Young",        tribe:"cila",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:["imm"]},
-  {id:"charlie",   name:"Charlie",   full:"Charlie Davis",         tribe:"cila",status:"eliminated",epOut:5,   elimType:"voted",  eps:4,bonuses:[]},
-  {id:"kamilla",   name:"Kamilla",   full:"Kamilla Karthigesu",    tribe:"cila",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:[]},
-  {id:"colby",     name:"Colby",     full:"Colby Donaldson",       tribe:"kalo",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:[]},
-  {id:"genevieve", name:"Genevieve", full:"Genevieve Mushaluk",    tribe:"kalo",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:[]},
-  {id:"rizo",      name:"Rizo",      full:"Rizo Velovic",          tribe:"cila",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:[]},
-  {id:"angelina",  name:"Angelina",  full:"Angelina Keeley",       tribe:"vatu",status:"eliminated",epOut:5,   elimType:"voted",  eps:4,bonuses:[]},
-  {id:"q",         name:"Q",         full:"Q Burdette",            tribe:"vatu",status:"eliminated",epOut:3,   elimType:"voted",  eps:2,bonuses:[]},
-  {id:"stephenie", name:"Stephenie", full:"Stephenie LaGrossa",    tribe:"vatu",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:[]},
-  {id:"aubry",     name:"Aubry",     full:"Aubry Bracco",          tribe:"kalo",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:[]},
-  {id:"coach",     name:"Coach",     full:"Benjamin 'Coach' Wade", tribe:"kalo",status:"active",    epOut:null,elimType:null,     eps:5,bonuses:[]},
+  // ── MERGED (14 remaining) ──────────────────────────────────
+  {id:"joe",       name:"Joe",       full:"Joe Hunter",            tribe:"merged",status:"active",    epOut:null,elimType:null,     eps:6,bonuses:["merge"]},
+  {id:"christian", name:"Christian", full:"Christian Hubicki",     tribe:"merged",status:"active",    epOut:null,elimType:null,     eps:6,bonuses:["reward","merge","imm"]},
+  {id:"cirie",     name:"Cirie",     full:"Cirie Fields",          tribe:"merged",status:"active",    epOut:null,elimType:null,     eps:6,bonuses:["merge"]},
+  {id:"ozzy",      name:"Ozzy",      full:"Ozzy Lusth",            tribe:"merged",status:"active",    epOut:null,elimType:null,     eps:6,bonuses:["merge","find_idol"]},
+  {id:"emily",     name:"Emily",     full:"Emily Flippen",         tribe:"merged",status:"active",    epOut:null,elimType:null,     eps:6,bonuses:["merge"]},
+  {id:"rick",      name:"Rick",      full:"Rick Devens",           tribe:"merged",status:"active",    epOut:null,elimType:null,     eps:6,bonuses:["find_idol","merge"]},
+  {id:"chrissy",   name:"Chrissy",   full:"Chrissy Hofbeck",       tribe:"merged",status:"active",    epOut:null,elimType:null,     eps:6,bonuses:["merge"]},
+  {id:"tiffany",   name:"Tiffany",   full:"Tiffany Ervin",         tribe:"merged",status:"active",    epOut:null,elimType:null,     eps:6,bonuses:["merge"]},
+  {id:"dee",       name:"Dee",       full:"Dee Valladares",        tribe:"merged",status:"active",    epOut:null,elimType:null,     eps:6,bonuses:["merge","imm"]},
+  {id:"jonathan",  name:"Jonathan",  full:"Jonathan Young",        tribe:"merged",status:"active",    epOut:null,elimType:null,     eps:6,bonuses:["imm","merge"]},
+  {id:"rizo",      name:"Rizo",      full:"Rizo Velovic",          tribe:"merged",status:"active",    epOut:null,elimType:null,     eps:6,bonuses:["merge"]},
+  {id:"stephenie", name:"Stephenie", full:"Stephenie LaGrossa",    tribe:"merged",status:"active",    epOut:null,elimType:null,     eps:6,bonuses:["merge","imm","reward"]},
+  {id:"aubry",     name:"Aubry",     full:"Aubry Bracco",          tribe:"merged",status:"active",    epOut:null,elimType:null,     eps:6,bonuses:["merge"]},
+  {id:"coach",     name:"Coach",     full:"Benjamin 'Coach' Wade", tribe:"merged",status:"active",    epOut:null,elimType:null,     eps:6,bonuses:["merge"]},
+
+  // ── ELIMINATED (pre-jury, ep 6 — no jury bonus) ────────────
+  // Survived 5 full eps, then voted at ep6 Blood Moon tribal
+  {id:"kamilla",   name:"Kamilla",   full:"Kamilla Karthigesu",    tribe:"cila",  status:"eliminated",epOut:6,   elimType:"voted",  eps:5,bonuses:[]},
+  {id:"genevieve", name:"Genevieve", full:"Genevieve Mushaluk",    tribe:"kalo",  status:"eliminated",epOut:6,   elimType:"voted",  eps:5,bonuses:[]},
+  {id:"colby",     name:"Colby",     full:"Colby Donaldson",       tribe:"kalo",  status:"eliminated",epOut:6,   elimType:"voted",  eps:5,bonuses:[]},
+
+  // ── ELIMINATED (pre-merge) ─────────────────────────────────
+  {id:"charlie",   name:"Charlie",   full:"Charlie Davis",         tribe:"cila",  status:"eliminated",epOut:5,   elimType:"voted",  eps:4,bonuses:[]},
+  {id:"angelina",  name:"Angelina",  full:"Angelina Keeley",       tribe:"vatu",  status:"eliminated",epOut:5,   elimType:"voted",  eps:4,bonuses:[]},
+  {id:"q",         name:"Q",         full:"Q Burdette",            tribe:"vatu",  status:"eliminated",epOut:3,   elimType:"voted",  eps:2,bonuses:[]},
+  {id:"mike",      name:"Mike",      full:"Mike White",            tribe:"kalo",  status:"eliminated",epOut:4,   elimType:"voted",  eps:3,bonuses:[]},
+  {id:"savannah",  name:"Savannah",  full:"Savannah Louie",        tribe:"cila",  status:"eliminated",epOut:2,   elimType:"voted",  eps:1,bonuses:[]},
+  {id:"jenna",     name:"Jenna",     full:"Jenna Lewis-Dougherty", tribe:"cila",  status:"eliminated",epOut:1,   elimType:"voted",  eps:0,bonuses:["first_boot"]},
+  {id:"kyle",      name:"Kyle",      full:"Kyle Fraser",           tribe:"kalo",  status:"medevac",   epOut:1,   elimType:"medevac",eps:0,bonuses:[]},
 ];
 
-// ── IMAGE SOURCES ─────────────────────────────────────────────
-// Each entry is an array of Wikipedia page title variants to try.
-// The browser will call the Wikipedia API for each until one returns a thumbnail.
-const WIKI_TITLES = {
-  joe:       ["Joe_Hunter_(Survivor_48)","Joe_Hunter_(Survivor)","Joe Hunter Survivor"],
-  savannah:  ["Savannah_Louie","Savannah Louie Survivor"],
-  christian: ["Christian_Hubicki","Christian Hubicki Survivor"],
-  cirie:     ["Cirie_Fields","Cirie Fields Survivor"],
-  ozzy:      ["Ozzy_Lusth","Oscar Lusth"],
-  emily:     ["Emily_Flippen","Emily Flippen Survivor"],
-  rick:      ["Rick_Devens","Rick Devens Survivor"],
-  jenna:     ["Jenna_Lewis","Jenna Lewis-Dougherty","Jenna Lewis Survivor"],
-  kyle:      ["Kyle_Fraser_(Survivor)","Kyle Fraser Survivor 48"],
-  chrissy:   ["Chrissy_Hofbeck","Chrissy Hofbeck Survivor"],
-  mike:      ["Mike_White_(filmmaker)","Mike_White","Mike White filmmaker"],
-  tiffany:   ["Tiffany_Ervin","Tiffany Ervin Survivor 46"],
-  dee:       ["Dee_Valladares","Dee Valladares Survivor"],
-  jonathan:  ["Jonathan_Young_(Survivor)","Jonathan Young Survivor 42"],
-  charlie:   ["Charlie_Davis_(Survivor)","Charlie Davis Survivor 46"],
-  kamilla:   ["Kamilla_Karthigesu","Kamilla Karthigesu Survivor"],
-  colby:     ["Colby_Donaldson","Colby Donaldson Survivor"],
-  genevieve: ["Genevieve_Mushaluk","Genevieve Mushaluk Survivor"],
-  rizo:      ["Rizo_Velovic","Rizgod Velovic Survivor"],
-  angelina:  ["Angelina_Keeley","Angelina Keeley Survivor"],
-  q:         ["Q_Burdette","Quintavious Burdette Survivor"],
-  stephenie: ["Stephenie_LaGrossa","Stephenie LaGrossa Kendrick"],
-  aubry:     ["Aubry_Bracco","Aubry Bracco Survivor"],
-  coach:     ["Benjamin_Wade_(Survivor)","Coach_Wade","Benjamin Wade Survivor"],
-};
-
-const imgCache = {};   // id -> url string | null
-
-async function tryWikiTitle(title) {
-  const url = `https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=pageimages&format=json&pithumbsize=400&origin=*`;
-  try {
-    const r = await fetch(url, {signal: AbortSignal.timeout(5000)});
-    const d = await r.json();
-    const page = Object.values(d?.query?.pages || {})[0];
-    return page?.thumbnail?.source || null;
-  } catch(e) { return null; }
-}
-
-async function resolveImg(id) {
-  if (imgCache[id] !== undefined) return imgCache[id];
-  imgCache[id] = null;
-  const titles = WIKI_TITLES[id] || [];
-  for (const t of titles) {
-    const src = await tryWikiTitle(t);
-    if (src) { imgCache[id] = src; return src; }
-  }
-  return null;
-}
-
-async function preloadAll() {
-  // Fire all requests concurrently, batching to avoid rate limits
-  const ids = CAST.map(c => c.id);
-  await Promise.allSettled(ids.map(id => resolveImg(id)));
-}
-
-// ── EPISODES ─────────────────────────────────────────────────
+// ── EPISODE LOG ───────────────────────────────────────────────
 const EPISODES=[
   {num:1,title:"Epic Party",date:"Feb 25, 2026",latest:false,
    events:[{t:"boot",x:"Jenna Lewis-Dougherty — 1st voted out"},{t:"medevac",x:"Kyle Fraser — medevac (torn Achilles)"},{t:"note",x:"3-hr premiere · Tribes: Cila 🟠 Kalo 🔵 Vatu 🟢"}]},
@@ -292,42 +241,87 @@ const EPISODES=[
   {num:3,title:"Did You Vote for a Swap?",date:"Mar 11, 2026",latest:false,
    events:[{t:"swap",x:"Tribe swap!"},{t:"boot",x:"Q Burdette voted out"},{t:"idol",x:"Boomerang Idols introduced"},{t:"note",x:"Q left allyless post-swap"}]},
   {num:4,title:"Knife to the Heart",date:"Mar 18, 2026",latest:false,
-   events:[{t:"boot",x:"Mike White — blindside 3-2-1"},{t:"idol",x:"Rick finds Billie Eilish Boomerang Idol"},{t:"immunity",x:"Christian wins Reward Challenge"},{t:"note",x:"Zac Brown cameo · Ozzy-Christian rivalry begins"}]},
-  {num:5,title:"Open Wounds",date:"Mar 25, 2026",latest:true,
-   events:[{t:"boot",x:"🆕 Angelina Keeley voted out 4-1 (Vatu)"},{t:"boot",x:"🆕 Charlie Davis voted out 4-3 (Cila)"},{t:"immunity",x:"🆕 Kalo wins immunity — Joe clutch finish"},{t:"idol",x:"Rizo reveals Boomerang Idol to Dee · 3 idols still live"},{t:"note",x:"Double elim · 'Operation Bad Blood' · Merge next week"}]},
+   events:[{t:"boot",x:"Mike White — blindside 3-2-1"},{t:"idol",x:"Rick finds Billie Eilish Boomerang Idol"},{t:"immunity",x:"Christian wins Reward Challenge"},{t:"note",x:"Zac Brown cameo · Ozzy-Christian rivalry ignites"}]},
+  {num:5,title:"Open Wounds",date:"Mar 25, 2026",latest:false,
+   events:[{t:"boot",x:"Angelina Keeley voted out 4-1 (Vatu)"},{t:"boot",x:"Charlie Davis voted out 4-3 (Cila)"},{t:"immunity",x:"Kalo wins immunity — Joe clutch finish"},{t:"idol",x:"Rizo reveals Boomerang Idol to Dee"},{t:"note",x:"Double elim · 'Operation Bad Blood'"}]},
+  {num:6,title:"The Blood Moon",date:"Apr 1, 2026",latest:true,
+   events:[
+     {t:"merge",x:"🆕 MERGE at 17 — largest in Survivor history"},
+     {t:"boot",x:"🆕 Kamilla Karthigesu — Blood Moon Tribal 1"},
+     {t:"boot",x:"🆕 Genevieve Mushaluk — Blood Moon Tribal 2"},
+     {t:"boot",x:"🆕 Colby Donaldson — Blood Moon Tribal 3 (unanimous)"},
+     {t:"immunity",x:"🆕 Indiv. immunity: Stephenie, Dee, Christian"},
+     {t:"idol",x:"🆕 Ozzy finds Exile Island advantage · takes Rizo"},
+     {t:"note",x:"Triple elim = NO jury for these 3 · Jury starts Ep 7 · Apr 8"},
+   ]},
 ];
+
+// ── WIKI IMAGE SOURCES ────────────────────────────────────────
+const WIKI_TITLES={
+  joe:       ["Joe_Hunter_(Survivor_48)","Joe_Hunter_(Survivor)"],
+  savannah:  ["Savannah_Louie"],
+  christian: ["Christian_Hubicki"],
+  cirie:     ["Cirie_Fields"],
+  ozzy:      ["Ozzy_Lusth"],
+  emily:     ["Emily_Flippen"],
+  rick:      ["Rick_Devens"],
+  jenna:     ["Jenna_Lewis","Jenna_Lewis-Dougherty"],
+  kyle:      ["Kyle_Fraser_(Survivor)"],
+  chrissy:   ["Chrissy_Hofbeck"],
+  mike:      ["Mike_White_(filmmaker)","Mike_White"],
+  tiffany:   ["Tiffany_Ervin"],
+  dee:       ["Dee_Valladares"],
+  jonathan:  ["Jonathan_Young_(Survivor)"],
+  charlie:   ["Charlie_Davis_(Survivor)"],
+  kamilla:   ["Kamilla_Karthigesu"],
+  colby:     ["Colby_Donaldson"],
+  genevieve: ["Genevieve_Mushaluk"],
+  rizo:      ["Rizo_Velovic"],
+  angelina:  ["Angelina_Keeley"],
+  q:         ["Q_Burdette"],
+  stephenie: ["Stephenie_LaGrossa","Stephenie_LaGrossa_Kendrick"],
+  aubry:     ["Aubry_Bracco"],
+  coach:     ["Benjamin_Wade_(Survivor)","Coach_Wade"],
+};
+
+const imgCache={};
+
+async function tryWiki(title){
+  try{
+    const r=await fetch(`https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=pageimages&format=json&pithumbsize=400&origin=*`,{signal:AbortSignal.timeout(5000)});
+    const d=await r.json();
+    const p=Object.values(d?.query?.pages||{})[0];
+    return p?.thumbnail?.source||null;
+  }catch(e){return null;}
+}
+
+async function resolveImg(id){
+  if(imgCache[id]!==undefined)return imgCache[id];
+  imgCache[id]=null;
+  for(const t of(WIKI_TITLES[id]||[])){
+    const s=await tryWiki(t);
+    if(s){imgCache[id]=s;return s;}
+  }
+  return null;
+}
+
+async function preloadAll(){
+  await Promise.allSettled(CAST.map(c=>resolveImg(c.id)));
+}
 
 // ── HELPERS ───────────────────────────────────────────────────
 function pts(c){return c.eps*SC.perEp+c.bonuses.reduce((s,b)=>s+(BM[b]||0),0)}
-
 function drafterPts(d){
   let tot=0;
   const rows=d.picks.map(n=>{
     const m=CAST.find(c=>c.name.toLowerCase()===n.toLowerCase());
-    const p=m?pts(m):0; tot+=p;
-    return{name:n,pts:p,status:m?.status||'unknown',elim:m?.elimType||null,id:m?.id||null};
+    const p=m?pts(m):0;tot+=p;
+    return{name:n,pts:p,status:m?.status||'unknown',id:m?.id||null};
   });
   return{tot,rows};
 }
-
 function ini(name){return name.split(/[\s']+/).map(w=>w[0]).join('').toUpperCase().slice(0,2)}
-
-function photoImg(id, name, cls, style='') {
-  const src = imgCache[id];
-  if (src) {
-    return `<img src="${src}" alt="${name}" class="${cls}" style="${style}" loading="lazy" onerror="this.replaceWith(makeAv('${ini(name)}','${cls}','${style}'))">`;
-  }
-  return `<div class="${cls}" style="display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--fire);background:rgba(255,107,26,.1);${style}">${ini(name)}</div>`;
-}
-
-function makeAv(txt, cls, style) {
-  const d = document.createElement('div');
-  d.className = cls;
-  d.style.cssText = `display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--fire);background:rgba(255,107,26,.1);${style}`;
-  d.textContent = txt;
-  return d;
-}
-window.makeAv = makeAv;
+window.makeAv=(txt,cls,style)=>{const d=document.createElement('div');d.className=cls;d.style.cssText=`display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--fire);background:rgba(255,107,26,.1);${style}`;d.textContent=txt;return d;};
 
 // ── LEADERBOARD ───────────────────────────────────────────────
 function renderLB(){
@@ -349,8 +343,7 @@ function renderLB(){
       <div class="score-col"><div class="score-num">${s.tot}</div><div class="score-lbl">pts</div></div>
     </div>`;
   });
-  h+='</div>';
-  document.getElementById('pane-lb').innerHTML=h;
+  document.getElementById('pane-lb').innerHTML=h+'</div>';
 }
 
 // ── SCORECARDS ────────────────────────────────────────────────
@@ -364,19 +357,16 @@ function renderSC(){
       const bl={active:'Active',eliminated:'Out',medevac:'Medevac',jury:'Jury',winner:'Winner!'}[p.status]||p.status;
       const src=p.id?imgCache[p.id]:null;
       const ph=src
-        ?`<img src="${src}" loading="lazy" onerror="this.outerHTML='<div class=av-sq>${ini(p.name)}</div>'" style="width:38px;height:38px;border-radius:8px;object-fit:cover;object-position:top;background:rgba(255,107,26,.1);border:1px solid rgba(255,107,26,.15);flex-shrink:0">`
+        ?`<img src="${src}" loading="lazy" onerror="this.outerHTML='<div class=av-sq>${ini(p.name)}</div>'" style="width:38px;height:38px;border-radius:8px;object-fit:cover;object-position:top;border:1px solid rgba(255,107,26,.15);flex-shrink:0">`
         :`<div class="av-sq">${ini(p.name)}</div>`;
       return`<div class="sc-row${gone?' gone':''}">
-        ${ph}
-        <div class="sc-pname${gone?' struck':''}">${p.name}</div>
-        <div class="badge ${bc}">${bl}</div>
-        <div class="sc-pts">${p.pts}pt</div>
+        ${ph}<div class="sc-pname${gone?' struck':''}">${p.name}</div>
+        <div class="badge ${bc}">${bl}</div><div class="sc-pts">${p.pts}pt</div>
       </div>`;
     }).join('');
     h+=`<div class="sc-card"><div class="sc-head"><span class="sc-name">${d.name}</span><span class="sc-total">${s.tot}pt</span></div><div class="sc-picks">${rows}</div></div>`;
   });
-  h+='</div>';
-  document.getElementById('pane-sc').innerHTML=h;
+  document.getElementById('pane-sc').innerHTML=h+'</div>';
 }
 
 // ── CAST ──────────────────────────────────────────────────────
@@ -390,44 +380,31 @@ function renderCast(){
       ?`<img src="${src}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`+
        `<div class="c-placeholder" style="display:none"><div class="big-init">${ini(c.name)}</div></div>`
       :`<div class="c-placeholder"><div class="big-init">${ini(c.name)}</div></div>`;
-    const banner=gone
-      ?`<div class="gone-banner"><span class="snuffed">${c.elimType==='medevac'?'🏥 Medevac':'🗳️ Voted Out'}</span></div>`
-      :'';
+    const dotClass=c.tribe==='merged'?'t-merged':`t-${c.tribe}`;
+    const banner=gone?`<div class="gone-banner"><span class="snuffed">${c.elimType==='medevac'?'🏥 Medevac':'🗳️ Voted Out'}</span></div>`:'';
     return`<div class="cast-card${gone?' gone':''}">
-      <div class="c-img-wrap">${imgInner}<div class="tribe-dot t-${c.tribe}"></div>${banner}</div>
+      <div class="c-img-wrap">${imgInner}<div class="tribe-dot ${dotClass}"></div>${banner}</div>
       <div class="c-info">
         <div class="c-name">${c.name}</div>
         ${drafter?`<div class="c-drafter">📌 ${drafter}</div>`:`<div class="c-drafter" style="color:#3a3a3a">Undrafted</div>`}
-        ${gone
-          ?`<div class="c-ep">Ep${c.epOut} · ${c.elimType==='medevac'?'Medevac':'Out'}</div>`
-          :`<div class="c-pts">${p}pts</div>`}
+        ${gone?`<div class="c-ep">Ep${c.epOut}·${c.elimType==='medevac'?'Medevac':'Out'}</div>`:`<div class="c-pts">${p}pts</div>`}
       </div>
     </div>`;
   };
   const active=CAST.filter(c=>!['eliminated','medevac'].includes(c.status));
   const elim=CAST.filter(c=>['eliminated','medevac'].includes(c.status));
   document.getElementById('pane-cast').innerHTML=`
-    <div class="cast-section">
-      <div class="sec-label">Still In The Game (${active.length})</div>
-      <div class="cast-grid">${active.map(card).join('')}</div>
-    </div>
+    <div class="cast-section"><div class="sec-label">Merged Tribe — 14 Remain 🟡</div><div class="cast-grid">${active.map(card).join('')}</div></div>
     <div class="divider"></div>
-    <div class="cast-section">
-      <div class="sec-label">Snuffed Torches (${elim.length})</div>
-      <div class="cast-grid">${elim.map(card).join('')}</div>
-    </div>`;
+    <div class="cast-section"><div class="sec-label">Snuffed Torches (${elim.length})</div><div class="cast-grid">${elim.map(card).join('')}</div></div>`;
 }
 
 // ── EPISODES ─────────────────────────────────────────────────
 function renderEps(){
-  const tm={boot:'ev-boot',medevac:'ev-medevac',idol:'ev-idol',swap:'ev-swap',immunity:'ev-immunity',note:'ev-note'};
+  const tm={boot:'ev-boot',medevac:'ev-medevac',idol:'ev-idol',swap:'ev-swap',immunity:'ev-immunity',note:'ev-note',merge:'ev-merge'};
   const h=[...EPISODES].reverse().map(ep=>`
     <div class="ep-card${ep.latest?' latest':''}">
-      <div class="ep-head">
-        <span class="ep-badge${ep.latest?' new':''}">${ep.latest?'★ ':''}Ep ${ep.num}</span>
-        <span class="ep-ttl">"${ep.title}"</span>
-        <span class="ep-dt">${ep.date}</span>
-      </div>
+      <div class="ep-head"><span class="ep-badge${ep.latest?' new':''}">${ep.latest?'★ ':''}Ep ${ep.num}</span><span class="ep-ttl">"${ep.title}"</span><span class="ep-dt">${ep.date}</span></div>
       <div class="ep-evts">${ep.events.map(e=>`<span class="ev ${tm[e.t]||'ev-note'}">${e.x}</span>`).join('')}</div>
     </div>`).join('');
   document.getElementById('pane-eps').innerHTML=`<div class="ep-list">${h}</div>`;
@@ -436,12 +413,7 @@ function renderEps(){
 // ── RULES ─────────────────────────────────────────────────────
 function renderRules(){
   const rows=[["Surviving each episode","+2"],["Win Individual Immunity","+5"],["Find Hidden Idol","+10"],["Successfully Play Idol","+10"],["Win Reward Challenge","+3"],["Make the Merge","+10"],["Make Jury","+5"],["Make Final 5","+10"],["Make Final 3","+15"],["Runner-Up (2nd place)","+20"],["WIN SURVIVOR! 🏆","+50"],["First Boot penalty","−5"],["Voted out w/ idol in pocket","−5"],["Medical evacuation","0"],["Win Fire-Making Challenge","+10"],["Boomerang Idol play","+15"]];
-  document.getElementById('pane-rules').innerHTML=`
-    <div class="key-box">
-      <h3>🏝️ DRAFT POINT SYSTEM</h3>
-      <div class="key-grid">${rows.map(([l,p])=>`<div class="key-row"><span>${l}</span><span class="kpts">${p}</span></div>`).join('')}</div>
-      <p class="key-note">Each drafter's total = sum of all 3 picks' cumulative points. Updated weekly after each episode.</p>
-    </div>`;
+  document.getElementById('pane-rules').innerHTML=`<div class="key-box"><h3>🏝️ DRAFT POINT SYSTEM</h3><div class="key-grid">${rows.map(([l,p])=>`<div class="key-row"><span>${l}</span><span class="kpts">${p}</span></div>`).join('')}</div><p class="key-note">Each drafter's total = sum of all 3 picks' cumulative points. Updated after each episode.</p></div>`;
 }
 
 // ── TABS ──────────────────────────────────────────────────────
@@ -453,15 +425,10 @@ function tab(name,btn){
 }
 
 // ── INIT ──────────────────────────────────────────────────────
-(async () => {
-  // Render immediately with initials placeholders
-  renderLB(); renderSC(); renderCast(); renderEps(); renderRules();
-
-  // Fetch all images concurrently from Wikipedia API
+(async()=>{
+  renderLB();renderSC();renderCast();renderEps();renderRules();
   await preloadAll();
-
-  // Re-render with real photos now that cache is populated
-  renderLB(); renderSC(); renderCast();
+  renderLB();renderSC();renderCast();
 })();
 </script>
 </body>
