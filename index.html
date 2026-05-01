@@ -225,7 +225,7 @@ const SC={
   findIdol:8, transferIdol:4, holdIdol:2, playIdol:12, idolPocket:-5,
   boomerangCreate:6, boomerangReceive:4, boomerangReturn:6, boomerangPlay:15,
   gainAdvantage:6, holdAdvantage:1, useAdvantage:8,
-  bewareAccept:4, bewareSuccess:8, bewareFail:-4, bewareConvert:4,
+  bewareAccept:4, bewareComplete:12, bewareFail:-4,
   merge:10, jury:5, final5:10, final3:15, runnerUp:20, win:50,
   firstBoot:-5, fire:10, pairedElimPenalty:-2
 };
@@ -340,8 +340,7 @@ const ADVANTAGE_EVENTS=[
   {player:"Stephenie", label:"Steal-a-Vote", type:"advantage", event:"gain", pts:SC.gainAdvantage, ep:7, status:"voted_out", note:"Won on journey"},
   {player:"Stephenie", label:"Steal-a-Vote hold", type:"advantage", event:"hold", pts:SC.holdAdvantage, ep:8, status:"voted_out", note:"Held through at least one episode"},
   {player:"Rick", label:"MrBeast Beware Advantage accepted", type:"beware", event:"accept", pts:SC.bewareAccept, ep:10, status:"active", note:"Accepted risk-based Beware Advantage"},
-  {player:"Rick", label:"MrBeast Beware succeeded", type:"beware", event:"success", pts:SC.bewareSuccess, ep:10, status:"active", note:"Won the coin flip / avoided penalty"},
-  {player:"Rick", label:"MrBeast Beware converted", type:"beware", event:"convert", pts:SC.bewareConvert, ep:10, status:"active", note:"Converted into safety plus future idol"},
+  {player:"Rick", label:"MrBeast Beware completed", type:"beware", event:"complete", pts:SC.bewareComplete, ep:10, status:"active", note:"Won the coin flip and converted it into safety plus a future idol"},
 ];
 function advantagePtsFor(name){
   return ADVANTAGE_EVENTS.filter(e=>e.player.toLowerCase()===name.toLowerCase()).reduce((sum,e)=>sum+(e.pts||0),0);
@@ -580,7 +579,7 @@ function renderRules(){
     ["Find Idol","+8"],["Transfer Idol","+4"],["Hold Idol per episode","+2"],["Play Idol Successfully","+12"],["Voted out w/ idol","−5"],
     ["Create Boomerang Idol","+6"],["Receive Boomerang Idol","+4"],["Boomerang returns / converts","+6"],["Play Boomerang Idol","+15"],
     ["Gain Advantage","+6"],["Hold Advantage per episode","+1"],["Use Advantage Successfully","+8"],
-    ["Accept Beware Advantage","+4"],["Succeed Beware Advantage","+8"],["Fail Beware Advantage","−4"],["Convert Beware Advantage","+4"],
+    ["Accept Beware Advantage","+4"],["Complete / Convert Beware Advantage","+12"],["Fail Beware Advantage","−4"],
     ["Make Final 5","+10"],["Make Final 3","+15"],["Runner-Up","+20"],["WIN SURVIVOR! 🏆","+50"],
     ["First Boot penalty","−5"],["Medical evacuation","0"],["Win Fire-Making Challenge","+10"],["Paired elimination penalty","−2"]
   ];
