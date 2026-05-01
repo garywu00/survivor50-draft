@@ -70,6 +70,29 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.7rem,6vw,3.1rem);font-weight:900
 .score-col{text-align:right}
 .score-num{font-family:'Cinzel',serif;font-size:1.5rem;font-weight:900;color:var(--fire-light);line-height:1}
 .score-lbl{font-size:.6rem;font-weight:600;letter-spacing:.1em;color:var(--text-muted);text-transform:uppercase}
+.leader-wrap{border-radius:var(--r)}
+.leader-card{cursor:default}
+.leader-name-btn{background:none;border:0;padding:0;margin:0;font:inherit;font-weight:700;font-size:.98rem;color:var(--text);cursor:pointer;text-align:left;display:inline-flex;align-items:center;gap:6px}
+.leader-name-btn:hover{color:var(--gold);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.chev{font-size:.7rem;color:var(--fire-light);transition:transform .2s;display:inline-block}
+.leader-wrap.open .chev{transform:rotate(90deg)}
+.p-chip.active{border-color:rgba(74,222,128,.22);background:rgba(74,222,128,.07);color:rgba(240,230,211,.86)}
+.p-chip.jury{border-color:rgba(255,215,0,.26);background:rgba(255,215,0,.08);color:var(--gold)}
+.p-chip.gone{opacity:.42;text-decoration:line-through;text-decoration-color:var(--fire)}
+.status-sym{font-size:.72rem;line-height:1;filter:drop-shadow(0 0 4px rgba(255,215,0,.18))}
+.lb-detail{display:none;margin:-2px 0 4px 57px;background:rgba(0,0,0,.16);border:1px solid rgba(255,107,26,.13);border-radius:0 0 var(--r) var(--r);padding:10px 12px 12px}
+.leader-wrap.open .lb-detail{display:block}
+.lb-pick{display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:start;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.lb-pick:last-child{border-bottom:0;padding-bottom:0}
+.lb-pick-img{width:34px;height:34px;border-radius:8px;object-fit:cover;object-position:top;border:1px solid rgba(255,107,26,.18);background:rgba(255,107,26,.08)}
+.lb-pick-name{font-weight:700;font-size:.84rem;color:var(--text);display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.lb-status-pill{font-size:.56rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:999px;border:1px solid rgba(255,255,255,.12);color:var(--text-dim)}
+.lb-status-pill.active{color:var(--green);border-color:rgba(74,222,128,.25);background:rgba(74,222,128,.08)}
+.lb-status-pill.jury{color:var(--gold);border-color:rgba(255,215,0,.28);background:rgba(255,215,0,.08)}
+.lb-breakdown{font-size:.68rem;color:var(--text-dim);margin-top:5px;line-height:1.55}
+.lb-breakdown span{display:inline-block;margin-right:8px;white-space:nowrap}
+.lb-pick-total{font-family:'Cinzel',serif;font-weight:900;color:var(--fire-light);font-size:1rem;white-space:nowrap}
+.lb-empty{font-size:.68rem;color:var(--text-muted);font-style:italic}
 
 /* SCORECARDS */
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:13px}
@@ -96,19 +119,20 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.7rem,6vw,3.1rem);font-weight:900
 .cast-section{margin-bottom:28px}
 .cast-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:9px}
 @media(max-width:380px){.cast-grid{grid-template-columns:repeat(3,1fr)}}
-.cast-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .2s}
+.cast-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .2s;position:relative}
 .cast-card:hover{border-color:var(--border-hi);transform:translateY(-2px)}
 .cast-card.gone{opacity:.32;filter:grayscale(.72)}
 .cast-card.gone:hover{transform:none}
-.cast-card.jury-member{border-color:rgba(255,107,26,.3)}
+.cast-card.jury-member{border-color:rgba(255,215,0,.48);background:linear-gradient(180deg,rgba(255,215,0,.08),rgba(255,255,255,.035));filter:grayscale(.35);opacity:.82}
+.cast-card.jury-member:hover{filter:grayscale(.1);opacity:1}
 .c-img-wrap{position:relative;aspect-ratio:3/4;background:rgba(255,107,26,.07);overflow:hidden}
 .c-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .3s}
-.cast-card:not(.gone):hover .c-img-wrap img{transform:scale(1.05)}
+.cast-card:not(.gone):not(.jury-member):hover .c-img-wrap img{transform:scale(1.05)}
 .c-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:linear-gradient(160deg,rgba(255,107,26,.06),rgba(0,0,0,.2))}
 .big-init{font-family:'Cinzel',serif;font-size:2.2rem;font-weight:700;color:var(--fire);opacity:.55}
 .gone-banner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.22)}
 .snuffed{background:rgba(139,37,0,.9);color:#FF9980;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:5px;border:1px solid rgba(255,107,26,.5)}
-.jury-banner{position:absolute;bottom:0;left:0;right:0;background:rgba(255,107,26,.75);color:#fff;font-size:.56rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:4px}
+.jury-banner{position:absolute;top:0;left:0;right:0;background:linear-gradient(135deg,rgba(255,215,0,.94),rgba(255,107,26,.9));color:#1f1204;font-size:.58rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:5px 4px;box-shadow:0 2px 10px rgba(0,0,0,.45)}
 .tribe-dot{position:absolute;top:6px;left:6px;width:9px;height:9px;border-radius:50%;border:2px solid rgba(0,0,0,.6)}
 .t-merged{background:var(--gold)}.t-cila{background:#FF6B1A}.t-kalo{background:#3B82F6}.t-vatu{background:#22C55E}
 .c-info{padding:8px 8px 10px}
@@ -116,7 +140,7 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.7rem,6vw,3.1rem);font-weight:900
 .c-drafter{font-size:.65rem;color:var(--fire-light);font-weight:500;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .c-pts{font-family:'Cinzel',serif;font-size:.77rem;font-weight:700;color:var(--gold-dim);margin-top:2px}
 .c-ep{font-size:.62rem;color:#555;margin-top:2px}
-.c-jury{font-size:.65rem;color:var(--fire-light);margin-top:2px;font-style:italic}
+.c-jury{font-size:.65rem;color:var(--gold);margin-top:4px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
 
 /* ADVANTAGES PANEL */
 .adv-panel{background:rgba(255,215,0,.04);border:1px solid rgba(255,215,0,.2);border-radius:var(--r);padding:16px;margin-bottom:22px}
@@ -127,6 +151,7 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.7rem,6vw,3.1rem);font-weight:900
 .adv-type{color:var(--gold-dim);font-size:.7rem}
 .adv-item.played{opacity:.4;border-color:rgba(255,255,255,.08)}
 .adv-item.played .adv-type::after{content:' — PLAYED ✓';color:var(--green)}
+.img-source-note{font-size:.68rem;color:var(--text-muted);text-align:center;margin:-12px 0 18px}
 
 /* EPISODE LOG */
 .ep-list{display:flex;flex-direction:column;gap:11px}
@@ -167,12 +192,12 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.7rem,6vw,3.1rem);font-weight:900
   <div class="torch">🔥</div>
   <h1>SURVIVOR 50</h1>
   <div class="subtitle">In the Hands of the Fans · Draft Tracker</div>
-  <div class="ep-pill"><span class="ep-dot"></span>Episode 7 of 13 · Apr 8, 2026</div>
+  <div class="ep-pill"><span class="ep-dot"></span>Episode 10 of 13 · Apr 29, 2026</div>
 </header>
 
 <div class="status-banner">
-  ⚖️ JURY PHASE — 13 players remain · Dee is Juror #1
-  <span>Ep 8 airs April 15 · Ozzy on 8 indiv. immunity wins — chasing Boston Rob's record of 9</span>
+  ⚖️ JURY PHASE — 9 players remain · Stephenie is Juror #5
+  <span>Updated through Ep 10 · Rick survived the MrBeast coin flip twist · Genevieve credited for both idol finds</span>
 </div>
 
 <nav class="tabs">
@@ -192,8 +217,24 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.7rem,6vw,3.1rem);font-weight:900
 </div>
 <script>
 // ── SCORING ───────────────────────────────────────────────────
-const SC={perEp:2,imm:5,findIdol:10,playIdol:10,reward:3,merge:10,jury:5,final5:10,final3:15,runnerUp:20,win:50,firstBoot:-5,idolPocket:-5,fire:10,boomerang:15};
-const BM={first_boot:SC.firstBoot,imm:SC.imm,find_idol:SC.findIdol,play_idol:SC.playIdol,reward:SC.reward,merge:SC.merge,jury:SC.jury,final5:SC.final5,final3:SC.final3,runner_up:SC.runnerUp,winner:SC.win,fire:SC.fire,boomerang:SC.boomerang};
+// Twist-balanced scoring. Advantages are scored through ADVANTAGE_EVENTS,
+// so each advantage only needs to be maintained in one place.
+const SC={
+  preMergeSurvive:2, postMergeSurvive:3, jurySurvive:4,
+  imm:5, groupImm:2, reward:3,
+  findIdol:8, transferIdol:4, holdIdol:2, playIdol:12, idolPocket:-5,
+  boomerangCreate:6, boomerangReceive:4, boomerangReturn:6, boomerangPlay:15,
+  gainAdvantage:6, holdAdvantage:1, useAdvantage:8,
+  bewareAccept:4, bewareSuccess:8, bewareFail:-4, bewareConvert:4,
+  merge:10, jury:5, final5:10, final3:15, runnerUp:20, win:50,
+  firstBoot:-5, fire:10, pairedElimPenalty:-2
+};
+const BM={
+  first_boot:SC.firstBoot, imm:SC.imm, group_imm:SC.groupImm, reward:SC.reward,
+  merge:SC.merge, jury:SC.jury, final5:SC.final5, final3:SC.final3,
+  runner_up:SC.runnerUp, winner:SC.win, fire:SC.fire,
+  idol_pocket:SC.idolPocket, paired_elim_penalty:SC.pairedElimPenalty
+};
 
 const DRAFTERS=[
   {name:"Gary",    picks:["Ozzy","Aubry","Tiffany"]},
@@ -241,251 +282,161 @@ const DRAFTERS=[
 // ────────────────────────────────────────────────────────────
 
 const CAST=[
-  // ── STILL IN (13 players, ep 7 survivors) ─────────────────
-  // Each surviving player: 7 eps × 2 = 14 base pts, + bonuses
-  {id:"joe",
-   name:"Joe",       full:"Joe Hunter",
-   tribe:"merged",   status:"active",    epOut:null, elimType:null,
-   eps:7, bonuses:["merge"]},
-   // base 14 + merge 10 = 24
+  // ── STILL IN (9 players, updated through Episode 10) ─────────
+  {id:"joe", name:"Joe", full:"Joe Hunter", tribe:"merged", status:"active", epOut:null, elimType:null, eps:10, bonuses:["merge","reward","imm","group_imm","imm"]},
+  {id:"cirie", name:"Cirie", full:"Cirie Fields", tribe:"merged", status:"active", epOut:null, elimType:null, eps:10, bonuses:["merge"]},
+  {id:"ozzy", name:"Ozzy", full:"Ozzy Lusth", tribe:"merged", status:"active", epOut:null, elimType:null, eps:10, bonuses:["merge","imm","group_imm"]},
+  {id:"emily", name:"Emily", full:"Emily Flippen", tribe:"merged", status:"active", epOut:null, elimType:null, eps:10, bonuses:["merge"]},
+  {id:"rick", name:"Rick", full:"Rick Devens", tribe:"merged", status:"active", epOut:null, elimType:null, eps:10, bonuses:["merge"]},
+  {id:"tiffany", name:"Tiffany", full:"Tiffany Ervin", tribe:"merged", status:"active", epOut:null, elimType:null, eps:10, bonuses:["merge","reward","imm","group_imm","imm"]},
+  {id:"jonathan", name:"Jonathan", full:"Jonathan Young", tribe:"merged", status:"active", epOut:null, elimType:null, eps:10, bonuses:["imm","merge","group_imm"]},
+  {id:"rizo", name:"Rizo", full:"Rizo Velovic", tribe:"merged", status:"active", epOut:null, elimType:null, eps:10, bonuses:["merge"]},
+  {id:"aubry", name:"Aubry", full:"Aubry Bracco", tribe:"merged", status:"active", epOut:null, elimType:null, eps:10, bonuses:["merge"]},
 
-  {id:"christian",
-   name:"Christian", full:"Christian Hubicki",
-   tribe:"merged",   status:"active",    epOut:null, elimType:null,
-   eps:7, bonuses:["reward","merge","imm"]},
-   // base 14 + reward 3 + merge 10 + imm 5 = 32
+  // ── JURY ───────────────────────────────────────────────────
+  {id:"dee", name:"Dee", full:"Dee Valladares", tribe:"merged", status:"jury", epOut:7, elimType:"voted", eps:7, bonuses:["merge","group_imm","jury"]},
+  {id:"chrissy", name:"Chrissy", full:"Chrissy Hofbeck", tribe:"merged", status:"jury", epOut:8, elimType:"paired", eps:8, bonuses:["merge","jury","paired_elim_penalty"]},
+  {id:"coach", name:"Coach", full:"Benjamin 'Coach' Wade", tribe:"merged", status:"jury", epOut:8, elimType:"paired", eps:8, bonuses:["merge","jury","paired_elim_penalty"]},
+  {id:"christian", name:"Christian", full:"Christian Hubicki", tribe:"merged", status:"jury", epOut:9, elimType:"twist", eps:9, bonuses:["reward","merge","group_imm","jury"]},
+  {id:"stephenie", name:"Stephenie", full:"Stephenie LaGrossa", tribe:"merged", status:"jury", epOut:10, elimType:"voted", eps:10, bonuses:["merge","group_imm","reward","jury"]},
 
-  {id:"cirie",
-   name:"Cirie",     full:"Cirie Fields",
-   tribe:"merged",   status:"active",    epOut:null, elimType:null,
-   eps:7, bonuses:["merge"]},
-   // base 14 + merge 10 = 24
-
-  {id:"ozzy",
-   name:"Ozzy",      full:"Ozzy Lusth",
-   tribe:"merged",   status:"active",    epOut:null, elimType:null,
-   eps:7, bonuses:["merge","find_idol","find_idol","imm"]},
-   // base 14 + merge 10 + find_idol(Boomerang received) 10
-   // + find_idol(Exile advantage) 10 + imm(ep7) 5 = 49
-   // Note: Genevieve gave Ozzy the Boomerang Idol — scores as receiving/finding
-
-  {id:"emily",
-   name:"Emily",     full:"Emily Flippen",
-   tribe:"merged",   status:"active",    epOut:null, elimType:null,
-   eps:7, bonuses:["merge"]},
-   // base 14 + merge 10 = 24
-
-  {id:"rick",
-   name:"Rick",      full:"Rick Devens",
-   tribe:"merged",   status:"active",    epOut:null, elimType:null,
-   eps:7, bonuses:["find_idol","merge"]},
-   // base 14 + find_idol 10 + merge 10 = 34
-
-  {id:"chrissy",
-   name:"Chrissy",   full:"Chrissy Hofbeck",
-   tribe:"merged",   status:"active",    epOut:null, elimType:null,
-   eps:7, bonuses:["merge"]},
-   // base 14 + merge 10 = 24
-
-  {id:"tiffany",
-   name:"Tiffany",   full:"Tiffany Ervin",
-   tribe:"merged",   status:"active",    epOut:null, elimType:null,
-   eps:7, bonuses:["merge"]},
-   // base 14 + merge 10 = 24
-
-  {id:"jonathan",
-   name:"Jonathan",  full:"Jonathan Young",
-   tribe:"merged",   status:"active",    epOut:null, elimType:null,
-   eps:7, bonuses:["imm","merge"]},
-   // base 14 + imm(ep2) 5 + merge 10 = 29
-
-  {id:"rizo",
-   name:"Rizo",      full:"Rizo Velovic",
-   tribe:"merged",   status:"active",    epOut:null, elimType:null,
-   eps:7, bonuses:["merge","find_idol"]},
-   // base 14 + merge 10 + find_idol(Boomerang received from Genevieve) 10 = 34
-
-  {id:"stephenie",
-   name:"Stephenie", full:"Stephenie LaGrossa",
-   tribe:"merged",   status:"active",    epOut:null, elimType:null,
-   eps:7, bonuses:["merge","imm","reward"]},
-   // base 14 + merge 10 + imm(ep6 group) 5 + reward(ep6 Applebee's) 3 = 32
-
-  {id:"aubry",
-   name:"Aubry",     full:"Aubry Bracco",
-   tribe:"merged",   status:"active",    epOut:null, elimType:null,
-   eps:7, bonuses:["merge","play_idol"]},
-   // base 14 + merge 10 + play_idol(ep7, burned Boomerang) 10 = 34
-   // NOTE: Aubry received the idol, not found it — no find_idol bonus.
-   // She played it successfully → play_idol +10.
-
-  {id:"coach",
-   name:"Coach",     full:"Benjamin 'Coach' Wade",
-   tribe:"merged",   status:"active",    epOut:null, elimType:null,
-   eps:7, bonuses:["merge"]},
-   // base 14 + merge 10 = 24
-
-  // ── JURY (ep 7) ───────────────────────────────────────────
-  {id:"dee",
-   name:"Dee",       full:"Dee Valladares",
-   tribe:"merged",   status:"jury",      epOut:7,    elimType:"voted",
-   eps:7, bonuses:["merge","imm","jury"]},
-   // base 14 + merge 10 + imm(ep6 group) 5 + jury 5 = 34
-
-  // ── PRE-JURY BOOTS (ep 6 Blood Moon — no jury) ───────────
-  {id:"kamilla",
-   name:"Kamilla",   full:"Kamilla Karthigesu",
-   tribe:"cila",     status:"eliminated",epOut:6,    elimType:"voted",
-   eps:5, bonuses:[]},
-   // base 10 — no merge, no jury
-
-  {id:"genevieve",
-   name:"Genevieve", full:"Genevieve Mushaluk",
-   tribe:"kalo",     status:"eliminated",epOut:6,    elimType:"voted",
-   eps:5, bonuses:["find_idol","find_idol"]},
-   // base 10 + find_idol×2 (found both Boomerang idols, gave away) 20 = 30
-   // NOTE: Genevieve found BOTH Boomerang Idols and sent them to Ozzy & Rizo.
-   // The Boomerang mechanic means she found them — full find_idol credit.
-
-  {id:"colby",
-   name:"Colby",     full:"Colby Donaldson",
-   tribe:"kalo",     status:"eliminated",epOut:6,    elimType:"voted",
-   eps:5, bonuses:[]},
-   // base 10 — no merge, no jury (Colby had no vote due to journey loss)
-
-  // ── PRE-MERGE BOOTS ───────────────────────────────────────
-  {id:"charlie",
-   name:"Charlie",   full:"Charlie Davis",
-   tribe:"cila",     status:"eliminated",epOut:5,    elimType:"voted",
-   eps:4, bonuses:[]},
-   // base 8
-
-  {id:"angelina",
-   name:"Angelina",  full:"Angelina Keeley",
-   tribe:"vatu",     status:"eliminated",epOut:5,    elimType:"voted",
-   eps:4, bonuses:[]},
-   // base 8
-
-  {id:"q",
-   name:"Q",         full:"Q Burdette",
-   tribe:"vatu",     status:"eliminated",epOut:3,    elimType:"voted",
-   eps:2, bonuses:[]},
-   // base 4
-
-  {id:"mike",
-   name:"Mike",      full:"Mike White",
-   tribe:"kalo",     status:"eliminated",epOut:4,    elimType:"voted",
-   eps:3, bonuses:[]},
-   // base 6
-
-  {id:"savannah",
-   name:"Savannah",  full:"Savannah Louie",
-   tribe:"cila",     status:"eliminated",epOut:2,    elimType:"voted",
-   eps:1, bonuses:[]},
-   // base 2
-
-  {id:"jenna",
-   name:"Jenna",     full:"Jenna Lewis-Dougherty",
-   tribe:"cila",     status:"eliminated",epOut:1,    elimType:"voted",
-   eps:0, bonuses:["first_boot"]},
-   // base 0 + first_boot -5 = -5
-
-  {id:"kyle",
-   name:"Kyle",      full:"Kyle Fraser",
-   tribe:"kalo",     status:"medevac",   epOut:1,    elimType:"medevac",
-   eps:0, bonuses:[]},
-   // base 0
+  // ── PRE-JURY BOOTS ─────────────────────────────────────────
+  {id:"kamilla", name:"Kamilla", full:"Kamilla Karthigesu", tribe:"cila", status:"eliminated", epOut:6, elimType:"voted", eps:5, bonuses:[]},
+  {id:"genevieve", name:"Genevieve", full:"Genevieve Mushaluk", tribe:"kalo", status:"eliminated", epOut:6, elimType:"voted", eps:5, bonuses:[]},
+  {id:"colby", name:"Colby", full:"Colby Donaldson", tribe:"kalo", status:"eliminated", epOut:6, elimType:"voted", eps:5, bonuses:[]},
+  {id:"charlie", name:"Charlie", full:"Charlie Davis", tribe:"cila", status:"eliminated", epOut:5, elimType:"voted", eps:4, bonuses:[]},
+  {id:"angelina", name:"Angelina", full:"Angelina Keeley", tribe:"vatu", status:"eliminated", epOut:5, elimType:"voted", eps:4, bonuses:[]},
+  {id:"q", name:"Q", full:"Q Burdette", tribe:"vatu", status:"eliminated", epOut:3, elimType:"voted", eps:2, bonuses:[]},
+  {id:"mike", name:"Mike", full:"Mike White", tribe:"kalo", status:"eliminated", epOut:4, elimType:"voted", eps:3, bonuses:[]},
+  {id:"savannah", name:"Savannah", full:"Savannah Louie", tribe:"cila", status:"eliminated", epOut:2, elimType:"voted", eps:1, bonuses:[]},
+  {id:"jenna", name:"Jenna", full:"Jenna Lewis-Dougherty", tribe:"cila", status:"eliminated", epOut:1, elimType:"voted", eps:0, bonuses:["first_boot"]},
+  {id:"kyle", name:"Kyle", full:"Kyle Fraser", tribe:"kalo", status:"medevac", epOut:1, elimType:"medevac", eps:0, bonuses:[]},
 ];
 
-// ── ACTIVE ADVANTAGES (for display panel in Cast tab) ────────
-const ADVANTAGES=[
-  {holder:"Ozzy",   type:"Boomerang Idol (standard)",         played:false},
-  {holder:"Rizo",   type:"Boomerang Idol (standard)",         played:false},
-  {holder:"Cirie",  type:"Extra Vote (from Ozzy)",            played:false},
-  {holder:"Stephenie",type:"Steal-a-Vote (ep7 journey win)",  played:false},
-  {holder:"Aubry",  type:"Boomerang Idol",                    played:true},  // burned ep7
+// ── ADVANTAGE / IDOL EVENTS ───────────────────────────────────
+// Add future twists here. Scoring updates automatically everywhere.
+// status: active, played, expired, burned, voted_out, complete
+const ADVANTAGE_EVENTS=[
+  {player:"Genevieve", label:"Billie Eilish Boomerang Idol #1", type:"boomerang", event:"create", pts:SC.boomerangCreate, ep:3, status:"expired", note:"Found one of two Boomerang Idols"},
+  {player:"Genevieve", label:"Billie Eilish Boomerang Idol #2", type:"boomerang", event:"create", pts:SC.boomerangCreate, ep:3, status:"expired", note:"Found the second Boomerang Idol"},
+  {player:"Genevieve", label:"Boomerang Idol transfer to Ozzy", type:"idol", event:"transfer", pts:SC.transferIdol, ep:3, status:"complete", note:"Successful intentional transfer"},
+  {player:"Genevieve", label:"Boomerang Idol transfer to Rizo", type:"idol", event:"transfer", pts:SC.transferIdol, ep:3, status:"complete", note:"Successful intentional transfer"},
+  {player:"Ozzy", label:"Boomerang Idol received from Genevieve", type:"boomerang", event:"receive", pts:SC.boomerangReceive, ep:3, status:"active", note:"Received idol from Genevieve"},
+  {player:"Ozzy", label:"Boomerang becomes standard idol", type:"boomerang", event:"return", pts:SC.boomerangReturn, ep:6, status:"active", note:"Genevieve out; idol stays alive"},
+  {player:"Ozzy", label:"Idol hold — Ep 8", type:"idol", event:"hold", pts:SC.holdIdol, ep:8, status:"active", note:"Held through episode"},
+  {player:"Ozzy", label:"Idol hold — Ep 9", type:"idol", event:"hold", pts:SC.holdIdol, ep:9, status:"active", note:"Held through episode"},
+  {player:"Ozzy", label:"Idol hold — Ep 10", type:"idol", event:"hold", pts:SC.holdIdol, ep:10, status:"active", note:"Held through episode"},
+  {player:"Rizo", label:"Boomerang Idol received from Genevieve", type:"boomerang", event:"receive", pts:SC.boomerangReceive, ep:3, status:"active", note:"Received idol from Genevieve"},
+  {player:"Rizo", label:"Boomerang becomes standard idol", type:"boomerang", event:"return", pts:SC.boomerangReturn, ep:6, status:"active", note:"Genevieve out; idol stays alive"},
+  {player:"Rizo", label:"Idol hold — Ep 8", type:"idol", event:"hold", pts:SC.holdIdol, ep:8, status:"active", note:"Held through episode"},
+  {player:"Rizo", label:"Idol hold — Ep 9", type:"idol", event:"hold", pts:SC.holdIdol, ep:9, status:"active", note:"Held through episode"},
+  {player:"Rizo", label:"Idol hold — Ep 10", type:"idol", event:"hold", pts:SC.holdIdol, ep:10, status:"active", note:"Held through episode"},
+  {player:"Rick", label:"Boomerang Idol found", type:"idol", event:"find", pts:SC.findIdol, ep:4, status:"played", note:"Found idol that moved through Christian to Aubry"},
+  {player:"Rick", label:"Boomerang Idol transfer chain", type:"idol", event:"transfer", pts:SC.transferIdol, ep:4, status:"played", note:"Created transfer chain to Aubry"},
+  {player:"Rick", label:"Transfer assist — Aubry play", type:"idol", event:"assist", pts:4, ep:7, status:"played", note:"Small assist because transferred idol was played"},
+  {player:"Aubry", label:"Boomerang Idol played", type:"boomerang", event:"play", pts:SC.boomerangPlay, ep:7, status:"played", note:"Played and burned the Boomerang Idol"},
+  {player:"Cirie", label:"Exile vote / immunity advantage", type:"advantage", event:"gain", pts:SC.gainAdvantage, ep:8, status:"played", note:"Gained unique exile / tribal participation advantage"},
+  {player:"Cirie", label:"Exile advantage used", type:"advantage", event:"use", pts:SC.useAdvantage, ep:8, status:"played", note:"Successfully used the advantage"},
+  {player:"Stephenie", label:"Steal-a-Vote", type:"advantage", event:"gain", pts:SC.gainAdvantage, ep:7, status:"voted_out", note:"Won on journey"},
+  {player:"Stephenie", label:"Steal-a-Vote hold", type:"advantage", event:"hold", pts:SC.holdAdvantage, ep:8, status:"voted_out", note:"Held through at least one episode"},
+  {player:"Rick", label:"MrBeast Beware Advantage accepted", type:"beware", event:"accept", pts:SC.bewareAccept, ep:10, status:"active", note:"Accepted risk-based Beware Advantage"},
+  {player:"Rick", label:"MrBeast Beware succeeded", type:"beware", event:"success", pts:SC.bewareSuccess, ep:10, status:"active", note:"Won the coin flip / avoided penalty"},
+  {player:"Rick", label:"MrBeast Beware converted", type:"beware", event:"convert", pts:SC.bewareConvert, ep:10, status:"active", note:"Converted into safety plus future idol"},
 ];
+function advantagePtsFor(name){
+  return ADVANTAGE_EVENTS.filter(e=>e.player.toLowerCase()===name.toLowerCase()).reduce((sum,e)=>sum+(e.pts||0),0);
+}
+function activeAdvantages(){
+  return ADVANTAGE_EVENTS.filter(e=>['active','played','voted_out'].includes(e.status)).map(e=>({holder:e.player,type:`${e.label} · ${e.note}`,played:e.status==='played'||e.status==='voted_out',status:e.status}));
+}
+const ADVANTAGES=activeAdvantages();
 
-// ── EPISODES ─────────────────────────────────────────────────
+// ── EPISODES// ── EPISODES ─────────────────────────────────────────────────
 const EPISODES=[
-  {num:1,title:"Epic Party",date:"Feb 25",latest:false,
-   events:[{t:"boot",x:"Jenna Lewis-Dougherty — 1st boot"},{t:"medevac",x:"Kyle Fraser — medevac (torn Achilles)"},{t:"note",x:"3-hr premiere · Tribes: Cila 🟠 Kalo 🔵 Vatu 🟢"}]},
-  {num:2,title:"Therapy Carousel",date:"Mar 4",latest:false,
-   events:[{t:"boot",x:"Savannah Louie voted out"},{t:"immunity",x:"Jonathan wins Indiv. Immunity"},{t:"note",x:"Savannah burned by journey secrecy"}]},
-  {num:3,title:"Did You Vote for a Swap?",date:"Mar 11",latest:false,
-   events:[{t:"swap",x:"Tribe swap!"},{t:"boot",x:"Q Burdette voted out"},{t:"idol",x:"Billie Eilish Boomerang Idols introduced · Genevieve finds both"},{t:"note",x:"Q allyless post-swap"}]},
-  {num:4,title:"Knife to the Heart",date:"Mar 18",latest:false,
-   events:[{t:"boot",x:"Mike White — blindside 3-2-1"},{t:"idol",x:"Rick finds Boomerang Idol · passes to Christian → Aubry"},{t:"immunity",x:"Christian wins Reward Challenge"},{t:"note",x:"Zac Brown cameo"}]},
-  {num:5,title:"Open Wounds",date:"Mar 25",latest:false,
-   events:[{t:"boot",x:"Angelina Keeley out 4-1 (Vatu)"},{t:"boot",x:"Charlie Davis out 4-3 (Cila)"},{t:"immunity",x:"Kalo wins immunity — Joe clutch"},{t:"idol",x:"Rizo reveals Boomerang Idol to Dee"},{t:"note",x:"Double elim · 'Operation Bad Blood'"}]},
-  {num:6,title:"The Blood Moon",date:"Apr 1",latest:false,
-   events:[
-     {t:"merge",x:"MERGE at 17 — largest in Survivor history"},
-     {t:"boot",x:"Kamilla Karthigesu — Blood Moon Tribal 1"},
-     {t:"boot",x:"Genevieve Mushaluk — Blood Moon Tribal 2"},
-     {t:"boot",x:"Colby Donaldson — Blood Moon Tribal 3 (unanimous)"},
-     {t:"immunity",x:"Indiv. immunity: Stephenie, Dee, Christian"},
-     {t:"idol",x:"Ozzy finds Exile Island advantage · takes Rizo · idols now permanent"},
-     {t:"note",x:"Triple elim = NO jury · All 3 winners now eliminated"},
-   ]},
-  {num:7,title:"That's Not How I Play Survivor",date:"Apr 8",latest:true,
-   events:[
-     {t:"boot",x:"🆕 Dee Valladares voted out 8-4-1 — 1st JURY MEMBER"},
-     {t:"immunity",x:"🆕 Ozzy wins Indiv. Immunity (8th career win — 1 behind Boston Rob record!)"},
-     {t:"idol",x:"🆕 Aubry plays & burns Boomerang Idol — no votes on her"},
-     {t:"idol",x:"🆕 Dee plays Shot in the Dark — NOT safe"},
-     {t:"idol",x:"🆕 Stephenie wins Steal-a-Vote on journey"},
-     {t:"note",x:"Coach feuds with everyone · 'Four Horsemen' alliance forming · Ep 8 Apr 15"},
-   ]},
+  {num:1,title:"Epic Party",date:"Feb 25",latest:false, events:[{t:"boot",x:"Jenna Lewis-Dougherty — 1st boot"},{t:"medevac",x:"Kyle Fraser — medevac (torn Achilles)"},{t:"note",x:"3-hr premiere · Tribes: Cila 🟠 Kalo 🔵 Vatu 🟢"}]},
+  {num:2,title:"Therapy Carousel",date:"Mar 4",latest:false, events:[{t:"boot",x:"Savannah Louie voted out"},{t:"immunity",x:"Jonathan wins Individual Immunity"}]},
+  {num:3,title:"Did You Vote for a Swap?",date:"Mar 11",latest:false, events:[{t:"swap",x:"Tribe swap"},{t:"boot",x:"Q Burdette voted out"},{t:"idol",x:"Genevieve finds both Billie Eilish Boomerang Idols"}]},
+  {num:4,title:"Knife to the Heart",date:"Mar 18",latest:false, events:[{t:"boot",x:"Mike White blindside"},{t:"idol",x:"Rick finds Boomerang Idol · passes to Christian → Aubry"},{t:"immunity",x:"Christian wins Reward Challenge"}]},
+  {num:5,title:"Open Wounds",date:"Mar 25",latest:false, events:[{t:"boot",x:"Angelina Keeley voted out"},{t:"boot",x:"Charlie Davis voted out"},{t:"immunity",x:"Kalo wins immunity"},{t:"idol",x:"Rizo reveals Boomerang Idol to Dee"}]},
+  {num:6,title:"The Blood Moon",date:"Apr 1",latest:false, events:[{t:"merge",x:"MERGE at 17"},{t:"boot",x:"Kamilla Karthigesu voted out"},{t:"boot",x:"Genevieve Mushaluk voted out"},{t:"boot",x:"Colby Donaldson voted out"},{t:"immunity",x:"Group immunity: Stephenie, Dee, Christian"},{t:"idol",x:"Ozzy finds Exile Island advantage · idols now permanent"}]},
+  {num:7,title:"That's Not How I Play Survivor",date:"Apr 8",latest:false, events:[{t:"boot",x:"Dee Valladares voted out — Juror #1"},{t:"immunity",x:"Ozzy wins Individual Immunity"},{t:"idol",x:"Aubry plays & burns Boomerang Idol"},{t:"idol",x:"Stephenie wins Steal-a-Vote on journey"}]},
+  {num:8,title:"Double The Fun, Double The Demise",date:"Apr 15",latest:false, events:[{t:"boot",x:"Chrissy Hofbeck + Coach Wade voted out together — Jurors #2–3"},{t:"immunity",x:"Joe + Tiffany win paired immunity and reward"},{t:"idol",x:"Cirie sent to Exile and earns right to vote while staying immune"},{t:"note",x:"Paired Destinies twist: votes target pairs"}]},
+  {num:9,title:"I Deserve All Of This",date:"Apr 22",latest:false, events:[{t:"boot",x:"Christian Hubicki eliminated — Juror #4"},{t:"immunity",x:"Joe wins Individual Immunity"},{t:"reward",x:"Joe, Jonathan, Ozzy, Tiffany win rice for the tribe"},{t:"idol",x:"Christian journey twist / advantage backfires"}]},
+  {num:10,title:"A Side Dish of Chaos",date:"Apr 29",latest:true, events:[{t:"boot",x:"🆕 Stephenie LaGrossa voted out — Juror #5"},{t:"immunity",x:"🆕 Tiffany wins Individual Immunity"},{t:"idol",x:"🆕 Rick wins MrBeast coin flip: safe + future idol"},{t:"note",x:"Auction episode · 9 players remain"}]},
 ];
 
-// ── WIKI IMAGES ───────────────────────────────────────────────
-const WIKI_TITLES={
-  joe:       ["Joe_Hunter_(Survivor_48)","Joe_Hunter_(Survivor)"],
-  savannah:  ["Savannah_Louie"],
-  christian: ["Christian_Hubicki"],
-  cirie:     ["Cirie_Fields"],
-  ozzy:      ["Ozzy_Lusth"],
-  emily:     ["Emily_Flippen"],
-  rick:      ["Rick_Devens"],
-  jenna:     ["Jenna_Lewis","Jenna_Lewis-Dougherty"],
-  kyle:      ["Kyle_Fraser_(Survivor)"],
-  chrissy:   ["Chrissy_Hofbeck"],
-  mike:      ["Mike_White_(filmmaker)","Mike_White"],
-  tiffany:   ["Tiffany_Ervin"],
-  dee:       ["Dee_Valladares"],
-  jonathan:  ["Jonathan_Young_(Survivor)"],
-  charlie:   ["Charlie_Davis_(Survivor)"],
-  kamilla:   ["Kamilla_Karthigesu"],
-  colby:     ["Colby_Donaldson"],
-  genevieve: ["Genevieve_Mushaluk"],
-  rizo:      ["Rizo_Velovic"],
-  angelina:  ["Angelina_Keeley"],
-  q:         ["Q_Burdette"],
-  stephenie: ["Stephenie_LaGrossa","Stephenie_LaGrossa_Kendrick"],
-  aubry:     ["Aubry_Bracco"],
-  coach:     ["Benjamin_Wade_(Survivor)","Coach_Wade"],
+// ── PLAYER IMAGES ──────────────────────────────────────────────
+// Free public source: Survivor Wiki / Fandom community files. The URLs use
+// Fandom's Special:Redirect/file endpoint so each contestant has a stable image.
+const IMAGE_URLS={
+  angelina: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_angelina_t.png?width=400',
+  aubry: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_aubry_t.png?width=400',
+  charlie: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_charlie_t.png?width=400',
+  chrissy: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_chrissy_t.png?width=400',
+  christian: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_christian_t.png?width=400',
+  cirie: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_cirie_t.png?width=400',
+  coach: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_coach_t.png?width=400',
+  colby: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_colby_t.png?width=400',
+  dee: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_dee_t.png?width=400',
+  emily: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_emily_t.png?width=400',
+  genevieve: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_genevieve_t.png?width=400',
+  jenna: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_jenna_t.png?width=400',
+  joe: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_joe_t.png?width=400',
+  jonathan: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_jonathan_t.png?width=400',
+  kamilla: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_kamilla_t.png?width=400',
+  kyle: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_kyle_t.png?width=400',
+  mike: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_mike_t.png?width=400',
+  ozzy: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_ozzy_t.png?width=400',
+  q: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_q_t.png?width=400',
+  rick: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_rick_t.png?width=400',
+  rizo: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_rizo_t.png?width=400',
+  savannah: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_savannah_t.png?width=400',
+  stephenie: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_stephenie_t.png?width=400',
+  tiffany: 'https://survivor.fandom.com/wiki/Special:Redirect/file/S50_tiffany_t.png?width=400',
 };
 
-const imgCache={};
-async function tryWiki(t){
-  try{
-    const r=await fetch(`https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(t)}&prop=pageimages&format=json&pithumbsize=400&origin=*`,{signal:AbortSignal.timeout(5000)});
-    const d=await r.json();
-    const p=Object.values(d?.query?.pages||{})[0];
-    return p?.thumbnail?.source||null;
-  }catch(e){return null;}
-}
-async function resolveImg(id){
-  if(imgCache[id]!==undefined)return imgCache[id];
-  imgCache[id]=null;
-  for(const t of(WIKI_TITLES[id]||[])){const s=await tryWiki(t);if(s){imgCache[id]=s;return s;}}
-  return null;
-}
-async function preloadAll(){await Promise.allSettled(CAST.map(c=>resolveImg(c.id)));}
+const imgCache={...IMAGE_URLS};
+async function preloadAll(){return Promise.resolve();}
 
 // ── HELPERS ───────────────────────────────────────────────────
-function pts(c){return c.eps*SC.perEp+c.bonuses.reduce((s,b)=>s+(BM[b]||0),0)}
+function survivalPts(eps){
+  let total=0;
+  for(let i=1;i<=eps;i++){
+    if(i<6) total+=SC.preMergeSurvive;
+    else if(i<8) total+=SC.postMergeSurvive;
+    else total+=SC.jurySurvive;
+  }
+  return total;
+}
+function baseBonusPts(c){return c.bonuses.reduce((s,b)=>s+(BM[b]||0),0)}
+function pts(c){return survivalPts(c.eps)+baseBonusPts(c)+advantagePtsFor(c.name)}
+function pointBreakdown(c){return {survival:survivalPts(c.eps), base:baseBonusPts(c), advantages:advantagePtsFor(c.name), total:pts(c)}}
+function bonusLabel(b){
+  return ({
+    first_boot:'First boot', imm:'Individual immunity', group_imm:'Group/pair immunity', reward:'Reward',
+    merge:'Merge', jury:'Jury', final5:'Final 5', final3:'Final 3', runner_up:'Runner-up', winner:'Winner',
+    fire:'Fire-making', idol_pocket:'Voted out with idol', paired_elim_penalty:'Paired elim penalty'
+  })[b]||b.replaceAll('_',' ');
+}
+function pointDetails(c){
+  const survival={label:'Survival ('+c.eps+' eps)', pts:survivalPts(c.eps)};
+  const base=c.bonuses.map(b=>({label:bonusLabel(b), pts:BM[b]||0}));
+  const adv=ADVANTAGE_EVENTS.filter(e=>e.player.toLowerCase()===c.name.toLowerCase()).map(e=>({label:e.label, pts:e.pts||0}));
+  return [survival,...base,...adv];
+}
+function statusSymbol(status){return status==='active'?'🟢':status==='jury'?'⚖️':status==='medevac'?'🏥':'🗳️'}
+function statusLabel(c){
+  if(!c) return 'Unknown';
+  if(c.status==='active') return 'Still in';
+  if(c.status==='jury'){
+    const juryOrder=CAST.filter(x=>x.status==='jury').sort((a,b)=>(a.epOut||99)-(b.epOut||99));
+    const n=juryOrder.findIndex(j=>j.id===c.id)+1;
+    return 'Juror #'+n;
+  }
+  if(c.status==='medevac') return 'Medevac';
+  return 'Out Ep '+c.epOut;
+}
+function toggleLeaderDetails(id){const el=document.getElementById(id);if(el)el.classList.toggle('open');}
 function drafterPts(d){
   let tot=0;
   const rows=d.picks.map(n=>{
@@ -504,25 +455,32 @@ function renderLB(){
   let h='<div class="leader-list">';
   sorted.forEach((s,i)=>{
     const r=i+1,rc=r<=3?`r${r}`:'',rn=r===1?'🥇':r===2?'🥈':r===3?'🥉':r,lo=r>3?' lo':'';
+    const wrapId=`leader-${s.name.toLowerCase().replace(/[^a-z0-9]+/g,'-')}`;
     const chips=s.rows.map(p=>{
+      const c=p.id?CAST.find(x=>x.id===p.id):null;
       const gone=['eliminated','medevac'].includes(p.status);
+      const jury=p.status==='jury';
+      const active=p.status==='active';
       const src=p.id?imgCache[p.id]:null;
-      const ph=src
-        ?`<img src="${src}" loading="lazy" onerror="this.outerHTML='<div class=av-sm>${ini(p.name)}</div>'" style="width:22px;height:22px;border-radius:50%;object-fit:cover;object-position:top;border:1px solid rgba(255,107,26,.2);flex-shrink:0">`
-        :`<div class="av-sm">${ini(p.name)}</div>`;
-      return`<div class="p-chip${gone?' gone':''}">${ph}<span>${p.name}</span></div>`;
+      const ph=src ? `<img src="${src}" loading="lazy" onerror="this.outerHTML='<div class=av-sm>${ini(p.name)}</div>'" style="width:22px;height:22px;border-radius:50%;object-fit:cover;object-position:top;border:1px solid rgba(255,107,26,.2);flex-shrink:0">` : `<div class="av-sm">${ini(p.name)}</div>`;
+      return `<div class="p-chip${gone?' gone':''}${jury?' jury':''}${active?' active':''}" title="${statusLabel(c)}">${ph}<span class="status-sym">${statusSymbol(p.status)}</span><span>${p.name}</span></div>`;
     }).join('');
-    h+=`<div class="leader-card ${rc}">
-      <div class="rank-num${lo}">${rn}</div>
-      <div class="leader-info"><div class="leader-name">${s.name}</div><div class="picks-row">${chips}</div></div>
-      <div class="score-col"><div class="score-num">${s.tot}</div><div class="score-lbl">pts</div></div>
-    </div>`;
+    const detail=s.rows.map(p=>{
+      const c=p.id?CAST.find(x=>x.id===p.id):null;
+      if(!c) return '';
+      const src=p.id?imgCache[p.id]:null;
+      const img=src?`<img class="lb-pick-img" src="${src}" loading="lazy" onerror="this.outerHTML='<div class=av-sq>${ini(p.name)}</div>'">`:`<div class="av-sq">${ini(p.name)}</div>`;
+      const details=pointDetails(c).filter(d=>d.pts!==0);
+      const detailHtml=details.length ? details.map(d=>`<span>${d.label}: <strong>${d.pts>0?'+':''}${d.pts}</strong></span>`).join('') : '<span class="lb-empty">No points yet</span>';
+      return `<div class="lb-pick">${img}<div><div class="lb-pick-name"><span>${statusSymbol(c.status)}</span>${c.name}<span class="lb-status-pill ${c.status}">${statusLabel(c)}</span></div><div class="lb-breakdown">${detailHtml}</div></div><div class="lb-pick-total">${pts(c)}pt</div></div>`;
+    }).join('');
+    h+=`<div class="leader-wrap" id="${wrapId}"><div class="leader-card ${rc}"><div class="rank-num${lo}">${rn}</div><div class="leader-info"><button class="leader-name-btn" onclick="toggleLeaderDetails('${wrapId}')"><span class="chev">▶</span>${s.name}</button><div class="picks-row">${chips}</div></div><div class="score-col"><div class="score-num">${s.tot}</div><div class="score-lbl">pts</div></div></div><div class="lb-detail">${detail}</div></div>`;
   });
   document.getElementById('pane-lb').innerHTML=h+'</div>';
 }
-
 // ── SCORECARDS ────────────────────────────────────────────────
 function renderSC(){
+  const juryOrder=CAST.filter(c=>c.status==='jury').sort((a,b)=>(a.epOut||99)-(b.epOut||99));
   let h='<div class="cards-grid">';
   DRAFTERS.forEach(d=>{
     const s=drafterPts(d);
@@ -530,7 +488,8 @@ function renderSC(){
       const gone=['eliminated','medevac'].includes(p.status);
       const isJury=p.status==='jury';
       const bc={active:'b-active',eliminated:'b-eliminated',medevac:'b-medevac',jury:'b-jury',winner:'b-winner'}[p.status]||'b-active';
-      const bl={active:'Active',eliminated:'Out',medevac:'Medevac',jury:'Jury #1',winner:'Winner!'}[p.status]||p.status;
+      const jurorNum=p.id?juryOrder.findIndex(j=>j.id===p.id)+1:0;
+      const bl=p.status==='jury'?`Juror #${jurorNum}`:({active:'Active',eliminated:'Out',medevac:'Medevac',winner:'Winner!'}[p.status]||p.status);
       const src=p.id?imgCache[p.id]:null;
       const ph=src
         ?`<img src="${src}" loading="lazy" onerror="this.outerHTML='<div class=av-sq>${ini(p.name)}</div>'" style="width:38px;height:38px;border-radius:8px;object-fit:cover;object-position:top;border:1px solid rgba(255,107,26,.15);flex-shrink:0">`
@@ -548,6 +507,7 @@ function renderSC(){
 // ── CAST ──────────────────────────────────────────────────────
 function renderCast(){
   const dl={};DRAFTERS.forEach(d=>d.picks.forEach(p=>dl[p.toLowerCase()]=d.name));
+  const juryOrder=CAST.filter(c=>c.status==='jury').sort((a,b)=>(a.epOut||99)-(b.epOut||99));
 
   // Advantages panel
   const advHtml=ADVANTAGES.map(a=>`
@@ -560,6 +520,7 @@ function renderCast(){
     const gone=['eliminated','medevac'].includes(c.status);
     const isJury=c.status==='jury';
     const p=pts(c),drafter=dl[c.name.toLowerCase()]||null;
+    const jurorNum=isJury?juryOrder.findIndex(j=>j.id===c.id)+1:0;
     const src=imgCache[c.id];
     const imgInner=src
       ?`<img src="${src}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`+
@@ -567,7 +528,7 @@ function renderCast(){
       :`<div class="c-placeholder"><div class="big-init">${ini(c.name)}</div></div>`;
     const dotClass=c.tribe==='merged'?'t-merged':`t-${c.tribe}`;
     let banner='';
-    if(isJury) banner=`<div class="jury-banner">⚖️ Jury</div>`;
+    if(isJury) banner=`<div class="jury-banner">⚖️ Juror #${jurorNum}</div>`;
     else if(gone) banner=`<div class="gone-banner"><span class="snuffed">${c.elimType==='medevac'?'🏥 Medevac':'🗳️ Out'}</span></div>`;
     const cardClass=`cast-card${gone?' gone':''}${isJury?' jury-member':''}`;
     return`<div class="${cardClass}">
@@ -576,7 +537,7 @@ function renderCast(){
         <div class="c-name">${c.name}</div>
         ${drafter?`<div class="c-drafter">📌 ${drafter}</div>`:`<div class="c-drafter" style="color:#3a3a3a">Undrafted</div>`}
         ${(gone&&!isJury)?`<div class="c-ep">Ep${c.epOut}·${c.elimType==='medevac'?'Medevac':'Out'}</div>`:
-          isJury?`<div class="c-jury">⚖️ ${p}pts</div>`:
+          isJury?`<div class="c-jury">Juror #${jurorNum} · Ep${c.epOut} · ${p}pts</div>`:
           `<div class="c-pts">${p}pts</div>`}
       </div>
     </div>`;
@@ -587,6 +548,7 @@ function renderCast(){
   const elim=CAST.filter(c=>['eliminated','medevac'].includes(c.status));
 
   document.getElementById('pane-cast').innerHTML=`
+    <div class="img-source-note">Player photos sourced from free public Survivor Wiki / Fandom image files.</div>
     <div class="adv-panel">
       <div class="adv-title">🗺️ Active Advantages & Idols</div>
       <div class="adv-grid">${advHtml}</div>
@@ -611,11 +573,21 @@ function renderEps(){
 
 // ── RULES ─────────────────────────────────────────────────────
 function renderRules(){
-  const rows=[["Surviving each episode","+2"],["Win Individual Immunity","+5"],["Find Hidden Idol","+10"],["Successfully Play Idol","+10"],["Win Reward Challenge","+3"],["Make the Merge","+10"],["Make Jury","+5"],["Make Final 5","+10"],["Make Final 3","+15"],["Runner-Up (2nd place)","+20"],["WIN SURVIVOR! 🏆","+50"],["First Boot penalty","−5"],["Voted out w/ idol in pocket","−5"],["Medical evacuation","0"],["Win Fire-Making Challenge","+10"],["Boomerang Idol play","+15"]];
-  document.getElementById('pane-rules').innerHTML=`<div class="key-box"><h3>🏝️ DRAFT POINT SYSTEM</h3><div class="key-grid">${rows.map(([l,p])=>`<div class="key-row"><span>${l}</span><span class="kpts">${p}</span></div>`).join('')}</div><p class="key-note">Each drafter's total = sum of all 3 picks' cumulative points. Updated weekly after each episode.</p></div>`;
+  const rows=[
+    ["Survive episode — pre-merge","+2"],["Survive episode — post-merge","+3"],["Survive episode — jury phase","+4"],
+    ["Win Individual Immunity","+5"],["Win Group / Pair Immunity","+2"],["Win Reward Challenge","+3"],
+    ["Make the Merge","+10"],["Make Jury","+5"],
+    ["Find Idol","+8"],["Transfer Idol","+4"],["Hold Idol per episode","+2"],["Play Idol Successfully","+12"],["Voted out w/ idol","−5"],
+    ["Create Boomerang Idol","+6"],["Receive Boomerang Idol","+4"],["Boomerang returns / converts","+6"],["Play Boomerang Idol","+15"],
+    ["Gain Advantage","+6"],["Hold Advantage per episode","+1"],["Use Advantage Successfully","+8"],
+    ["Accept Beware Advantage","+4"],["Succeed Beware Advantage","+8"],["Fail Beware Advantage","−4"],["Convert Beware Advantage","+4"],
+    ["Make Final 5","+10"],["Make Final 3","+15"],["Runner-Up","+20"],["WIN SURVIVOR! 🏆","+50"],
+    ["First Boot penalty","−5"],["Medical evacuation","0"],["Win Fire-Making Challenge","+10"],["Paired elimination penalty","−2"]
+  ];
+  document.getElementById('pane-rules').innerHTML=`<div class="key-box"><h3>🏝️ DRAFT POINT SYSTEM · TWIST BALANCED</h3><div class="key-grid">${rows.map(([l,p])=>`<div class="key-row"><span>${l}</span><span class="kpts">${p}</span></div>`).join('')}</div><p class="key-note">Advantage points are generated from one structured advantage log, so Rick’s MrBeast Beware Advantage, Genevieve’s 2 idol finds/transfers, Boomerang Idols, holds, and plays stay consistent without manual bonus duplication.</p></div>`;
 }
 
-// ── TABS ──────────────────────────────────────────────────────
+// ── TABS// ── TABS ──────────────────────────────────────────────────────
 function tab(name,btn){
   document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
