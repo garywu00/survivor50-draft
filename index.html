@@ -197,12 +197,12 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.7rem,6vw,3.1rem);font-weight:900
   <div class="torch">🔥</div>
   <h1>SURVIVOR 50</h1>
   <div class="subtitle">In the Hands of the Fans · Draft Tracker</div>
-  <div class="ep-pill"><span class="ep-dot"></span>Episode 12 of 13 · May 13, 2026</div>
+  <div class="ep-pill"><span class="ep-dot"></span>Finale · Episode 13 of 13 · May 20, 2026</div>
 </header>
 
 <div class="status-banner">
-  🔥 FINAL 5 — 5 players remain · Finale airs May 20
-  <span>Updated through Ep 10 · Rick survived the MrBeast coin flip twist · Genevieve credited for both idol finds</span>
+  🏆 FINALE COMPLETE — Aubry wins Survivor 50
+  <span>Final 3: Aubry, Jonathan, Joe · Jury vote: Aubry 8, Jonathan 3, Joe 0 · Final jurors: Tiffany + Rizo</span>
 </div>
 
 <nav class="tabs">
@@ -252,7 +252,7 @@ const DRAFTERS=[
 ];
 
 // ────────────────────────────────────────────────────────────
-// CAST — fully audited through Episode 12 / Final 5
+// CAST — fully audited through Episode 13 / Finale
 //
 // BONUS KEY used:
 //   imm          = +5  individual immunity win
@@ -287,12 +287,10 @@ const DRAFTERS=[
 // ────────────────────────────────────────────────────────────
 
 const CAST=[
-  // ── STILL IN (5 players, updated through Episode 12) ─────────
-  {id:"joe", name:"Joe", full:"Joe Hunter", tribe:"merged", status:"active", epOut:null, elimType:null, eps:12, bonuses:["merge","final5","reward","imm","group_imm","imm","imm","reward"]},
-  {id:"tiffany", name:"Tiffany", full:"Tiffany Ervin", tribe:"merged", status:"active", epOut:null, elimType:null, eps:12, bonuses:["merge","final5","reward","imm","group_imm","imm","imm"]},
-  {id:"jonathan", name:"Jonathan", full:"Jonathan Young", tribe:"merged", status:"active", epOut:null, elimType:null, eps:12, bonuses:["imm","merge","final5","group_imm","imm"]},
-  {id:"rizo", name:"Rizo", full:"Rizo Velovic", tribe:"merged", status:"active", epOut:null, elimType:null, eps:12, bonuses:["merge","final5"]},
-  {id:"aubry", name:"Aubry", full:"Aubry Bracco", tribe:"merged", status:"active", epOut:null, elimType:null, eps:12, bonuses:["merge","final5"]},
+  // ── FINALISTS / WINNER (Episode 13 finale) ────────────────
+  {id:"aubry", name:"Aubry", full:"Aubry Bracco", tribe:"merged", status:"winner", epOut:null, elimType:null, eps:13, bonuses:["merge","final5","final3","winner","imm"]},
+  {id:"jonathan", name:"Jonathan", full:"Jonathan Young", tribe:"merged", status:"runner_up", epOut:null, elimType:null, eps:13, bonuses:["imm","merge","final5","group_imm","imm","final3","runner_up","fire"]},
+  {id:"joe", name:"Joe", full:"Joe Hunter", tribe:"merged", status:"finalist", epOut:null, elimType:null, eps:13, bonuses:["merge","final5","reward","imm","group_imm","imm","imm","reward","final3"]},
 
   // ── JURY ───────────────────────────────────────────────────
   {id:"dee", name:"Dee", full:"Dee Valladares", tribe:"merged", status:"jury", epOut:7, elimType:"voted", eps:7, bonuses:["merge","group_imm","jury"]},
@@ -304,6 +302,8 @@ const CAST=[
   {id:"emily", name:"Emily", full:"Emily Flippen", tribe:"merged", status:"jury", epOut:11, elimType:"voted", eps:11, bonuses:["merge","jury"]},
   {id:"rick", name:"Rick", full:"Rick Devens", tribe:"merged", status:"jury", epOut:12, elimType:"voted", eps:12, bonuses:["merge","jury"]},
   {id:"cirie", name:"Cirie", full:"Cirie Fields", tribe:"merged", status:"jury", epOut:12, elimType:"voted", eps:12, bonuses:["merge","jury"]},
+  {id:"tiffany", name:"Tiffany", full:"Tiffany Ervin", tribe:"merged", status:"jury", epOut:13, elimType:"voted", eps:13, bonuses:["merge","final5","reward","imm","group_imm","imm","imm","jury"]},
+  {id:"rizo", name:"Rizo", full:"Rizo Velovic", tribe:"merged", status:"jury", epOut:13, elimType:"fire", eps:13, bonuses:["merge","final5","jury"]},
 
   // ── PRE-JURY BOOTS ─────────────────────────────────────────
   {id:"kamilla", name:"Kamilla", full:"Kamilla Karthigesu", tribe:"cila", status:"eliminated", epOut:6, elimType:"voted", eps:5, bonuses:[]},
@@ -333,13 +333,15 @@ const ADVANTAGE_EVENTS=[
   {player:"Ozzy", label:"Idol hold — Ep 9", type:"idol", event:"hold", pts:SC.holdIdol, ep:9, status:"played", note:"Held through episode"},
   {player:"Ozzy", label:"Idol hold — Ep 10", type:"idol", event:"hold", pts:SC.holdIdol, ep:10, status:"played", note:"Held through episode"},
 
-  {player:"Rizo", label:"Boomerang Idol received from Genevieve", type:"boomerang", event:"receive", pts:SC.boomerangReceive, ep:3, status:"active", note:"Received idol from Genevieve"},
-  {player:"Rizo", label:"Boomerang becomes standard idol", type:"boomerang", event:"return", pts:SC.boomerangReturn, ep:6, status:"active", note:"Genevieve out; idol stays alive"},
-  {player:"Rizo", label:"Idol hold — Ep 8", type:"idol", event:"hold", pts:SC.holdIdol, ep:8, status:"active", note:"Held through episode"},
-  {player:"Rizo", label:"Idol hold — Ep 9", type:"idol", event:"hold", pts:SC.holdIdol, ep:9, status:"active", note:"Held through episode"},
-  {player:"Rizo", label:"Idol hold — Ep 10", type:"idol", event:"hold", pts:SC.holdIdol, ep:10, status:"active", note:"Held through episode"},
-  {player:"Rizo", label:"Idol hold — Ep 11", type:"idol", event:"hold", pts:SC.holdIdol, ep:11, status:"active", note:"Held through episode"},
-  {player:"Rizo", label:"Idol hold — Ep 12", type:"idol", event:"hold", pts:SC.holdIdol, ep:12, status:"active", note:"Held through episode"},
+  {player:"Rizo", label:"Boomerang Idol received from Genevieve", type:"boomerang", event:"receive", pts:SC.boomerangReceive, ep:3, status:"expired", note:"Received idol from Genevieve"},
+  {player:"Rizo", label:"Boomerang becomes standard idol", type:"boomerang", event:"return", pts:SC.boomerangReturn, ep:6, status:"expired", note:"Genevieve out; idol stayed alive until it expired"},
+  {player:"Rizo", label:"Idol hold — Ep 8", type:"idol", event:"hold", pts:SC.holdIdol, ep:8, status:"expired", note:"Held through episode"},
+  {player:"Rizo", label:"Idol hold — Ep 9", type:"idol", event:"hold", pts:SC.holdIdol, ep:9, status:"expired", note:"Held through episode"},
+  {player:"Rizo", label:"Idol hold — Ep 10", type:"idol", event:"hold", pts:SC.holdIdol, ep:10, status:"expired", note:"Held through episode"},
+  {player:"Rizo", label:"Idol hold — Ep 11", type:"idol", event:"hold", pts:SC.holdIdol, ep:11, status:"expired", note:"Held through episode"},
+  {player:"Rizo", label:"Idol hold — Ep 12", type:"idol", event:"hold", pts:SC.holdIdol, ep:12, status:"expired", note:"Held through episode"},
+
+  {player:"Rizo", label:"Idol hold — Ep 13", type:"idol", event:"hold", pts:SC.holdIdol, ep:13, status:"expired", note:"Held until the idol expired at Final 5"},
 
   {player:"Rick", label:"Boomerang Idol found", type:"idol", event:"find", pts:SC.findIdol, ep:4, status:"played", note:"Found idol that moved through Christian to Aubry"},
   {player:"Rick", label:"Boomerang Idol transfer chain", type:"idol", event:"transfer", pts:SC.transferIdol, ep:4, status:"played", note:"Created transfer chain to Aubry"},
@@ -382,7 +384,8 @@ const EPISODES=[
   {num:9,title:"I Deserve All Of This",date:"Apr 22",latest:false, events:[{t:"boot",x:"Christian Hubicki eliminated — Juror #4"},{t:"immunity",x:"Joe wins Individual Immunity"},{t:"reward",x:"Joe, Jonathan, Ozzy, Tiffany win rice for the tribe"},{t:"idol",x:"Christian journey twist / advantage backfires"}]},
   {num:10,title:"A Side Dish of Chaos",date:"Apr 29",latest:false, events:[{t:"boot",x:"Stephenie LaGrossa voted out — Juror #5"},{t:"immunity",x:"Tiffany wins Individual Immunity"},{t:"idol",x:"Rick wins MrBeast coin flip: safe + future idol"},{t:"note",x:"Auction episode · 9 players remain"}]},
   {num:11,title:"The Power Broker",date:"May 6",latest:false, events:[{t:"boot",x:"Ozzy Lusth voted out with idol in pocket — Juror #6"},{t:"boot",x:"Emily Flippen voted out — Juror #7"},{t:"immunity",x:"Jonathan wins Individual Immunity after Tiffany disqualification"},{t:"idol",x:"Jonathan gains Power Broker: attends and votes at both Tribals"},{t:"idol",x:"Rick plays MrBeast idol on himself; Cirie uses extra vote"}]},
-  {num:12,title:"Big Threat Hunting",date:"May 13",latest:true, events:[{t:"boot",x:"🆕 Rick Devens voted out after failed Shot in the Dark — Juror #8"},{t:"boot",x:"🆕 Cirie Fields voted out — Juror #9"},{t:"immunity",x:"🆕 Joe wins Immunity + BBQ reward"},{t:"immunity",x:"🆕 Tiffany wins final-six Immunity"},{t:"note",x:"Final 5 set: Aubry, Tiffany, Rizo, Joe, Jonathan"}]},
+  {num:12,title:"Big Threat Hunting",date:"May 13",latest:false, events:[{t:"boot",x:"Rick Devens voted out after failed Shot in the Dark — Juror #8"},{t:"boot",x:"Cirie Fields voted out — Juror #9"},{t:"immunity",x:"Joe wins Immunity + BBQ reward"},{t:"immunity",x:"Tiffany wins final-six Immunity"},{t:"note",x:"Final 5 set: Aubry, Tiffany, Rizo, Joe, Jonathan"}]},
+  {num:13,title:"Reverse the Curse",date:"May 20",latest:true, events:[{t:"boot",x:"🆕 Tiffany Ervin voted out at Final 5 — Juror #10"},{t:"immunity",x:"🆕 Aubry wins final Immunity"},{t:"boot",x:"🆕 Rizo Velovic loses fire-making to Jonathan — Juror #11"},{t:"immunity",x:"🆕 Jonathan wins fire-making challenge"},{t:"merge",x:"🆕 Final 3: Aubry, Jonathan, Joe"},{t:"jury",x:"🆕 Aubry wins 8–3–0 over Jonathan and Joe"}]},
 ];
 
 // ── PLAYER INITIAL AVATARS ──────────────────────────────────────
@@ -414,9 +417,12 @@ function pointDetails(c){
   const adv=ADVANTAGE_EVENTS.filter(e=>e.player.toLowerCase()===c.name.toLowerCase()).map(e=>({label:e.label, pts:e.pts||0}));
   return [survival,...base,...adv];
 }
-function statusSymbol(status){return status==='active'?'🟢':status==='jury'?'⚖️':status==='medevac'?'🏥':'🗳️'}
+function statusSymbol(status){return status==='winner'?'🏆':status==='runner_up'?'🥈':status==='finalist'?'🥉':status==='active'?'🟢':status==='jury'?'⚖️':status==='medevac'?'🏥':'🗳️'}
 function statusLabel(c){
   if(!c) return 'Unknown';
+  if(c.status==='winner') return 'Winner';
+  if(c.status==='runner_up') return 'Runner-up';
+  if(c.status==='finalist') return 'Finalist';
   if(c.status==='active') return 'Still in';
   if(c.status==='jury'){
     const juryOrder=CAST.filter(x=>x.status==='jury').sort((a,b)=>(a.epOut||99)-(b.epOut||99));
@@ -476,9 +482,10 @@ function renderSC(){
     const rows=s.rows.map(p=>{
       const gone=['eliminated','medevac'].includes(p.status);
       const isJury=p.status==='jury';
-      const bc={active:'b-active',eliminated:'b-eliminated',medevac:'b-medevac',jury:'b-jury',winner:'b-winner'}[p.status]||'b-active';
+      const isFinal=p.status==='winner'||p.status==='runner_up'||p.status==='finalist';
+      const bc={active:'b-active',eliminated:'b-eliminated',medevac:'b-medevac',jury:'b-jury',winner:'b-winner',runner_up:'b-winner',finalist:'b-winner'}[p.status]||'b-active';
       const jurorNum=p.id?juryOrder.findIndex(j=>j.id===p.id)+1:0;
-      const bl=p.status==='jury'?`Juror #${jurorNum}`:({active:'Active',eliminated:'Out',medevac:'Medevac',winner:'Winner!'}[p.status]||p.status);
+      const bl=p.status==='jury'?`Juror #${jurorNum}`:({active:'Active',eliminated:'Out',medevac:'Medevac',winner:'Winner!',runner_up:'Runner-up',finalist:'Finalist'}[p.status]||p.status);
       const ph=`<div class="av-sq avatar-${p.status}">${ini(p.name)}</div>`;
       return`<div class="sc-row${(gone||isJury)?' gone':''}">
         ${ph}<div class="sc-pname${(gone||isJury)?' struck':''}">${p.name}</div>
@@ -492,7 +499,7 @@ function renderSC(){
 
 // ── CAST ──────────────────────────────────────────────────────
 function renderCast(){
-  const dl={};DRAFTERS.forEach(d=>d.picks.forEach(p=>dl[p.toLowerCase()]=d.name));
+  const dl=;DRAFTERS.forEach(d=>d.picks.forEach(p=>dl[p.toLowerCase()]=d.name));
   const juryOrder=CAST.filter(c=>c.status==='jury').sort((a,b)=>(a.epOut||99)-(b.epOut||99));
 
   // Advantages panel
@@ -505,14 +512,18 @@ function renderCast(){
   const card=c=>{
     const gone=['eliminated','medevac'].includes(c.status);
     const isJury=c.status==='jury';
+    const isFinal=c.status==='winner'||c.status==='runner_up'||c.status==='finalist';
     const p=pts(c),drafter=dl[c.name.toLowerCase()]||null;
     const jurorNum=isJury?juryOrder.findIndex(j=>j.id===c.id)+1:0;
     const imgInner=`<div class="c-placeholder avatar-${c.status}"><div class="big-init">${ini(c.name)}</div></div>`;
     const dotClass=c.tribe==='merged'?'t-merged':`t-${c.tribe}`;
     let banner='';
-    if(isJury) banner=`<div class="jury-banner">⚖️ Juror #${jurorNum}</div>`;
+    if(c.status==='winner') banner=`<div class="jury-banner">🏆 Winner</div>`;
+    else if(c.status==='runner_up') banner=`<div class="jury-banner">🥈 Runner-up</div>`;
+    else if(c.status==='finalist') banner=`<div class="jury-banner">🥉 Finalist</div>`;
+    else if(isJury) banner=`<div class="jury-banner">⚖️ Juror #${jurorNum}</div>`;
     else if(gone) banner=`<div class="gone-banner"><span class="snuffed">${c.elimType==='medevac'?'🏥 Medevac':'🗳️ Out'}</span></div>`;
-    const cardClass=`cast-card${gone?' gone':''}${isJury?' jury-member':''}`;
+    const cardClass=`cast-card${gone?' gone':''}${isJury?' jury-member':''}${isFinal?' jury-member':''}`;
     return`<div class="${cardClass}">
       <div class="c-img-wrap">${imgInner}<div class="tribe-dot ${dotClass}"></div>${banner}</div>
       <div class="c-info">
@@ -520,12 +531,14 @@ function renderCast(){
         ${drafter?`<div class="c-drafter">📌 ${drafter}</div>`:`<div class="c-drafter" style="color:#3a3a3a">Undrafted</div>`}
         ${(gone&&!isJury)?`<div class="c-ep">Ep${c.epOut}·${c.elimType==='medevac'?'Medevac':'Out'}</div>`:
           isJury?`<div class="c-jury">Juror #${jurorNum} · Ep${c.epOut} · ${p}pts</div>`:
+          isFinal?`<div class="c-jury">${statusLabel(c)} · ${p}pts</div>`:
           `<div class="c-pts">${p}pts</div>`}
       </div>
     </div>`;
   };
 
   const active=CAST.filter(c=>c.status==='active');
+  const finalists=CAST.filter(c=>['winner','runner_up','finalist'].includes(c.status));
   const jury=CAST.filter(c=>c.status==='jury');
   const elim=CAST.filter(c=>['eliminated','medevac'].includes(c.status));
 
@@ -534,7 +547,7 @@ function renderCast(){
       <div class="adv-title">🗺️ Active Advantages & Idols</div>
       <div class="adv-grid">${advHtml}</div>
     </div>
-    <div class="cast-section"><div class="sec-label">Still In The Game (${active.length})</div><div class="cast-grid">${active.map(card).join('')}</div></div>
+    <div class="cast-section"><div class="sec-label">Final Results (${finalists.length})</div><div class="cast-grid">${finalists.map(card).join('')}</div></div>
     <div class="divider"></div>
     <div class="cast-section"><div class="sec-label">Jury (${jury.length})</div><div class="cast-grid">${jury.map(card).join('')}</div></div>
     <div class="divider"></div>
