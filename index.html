@@ -449,7 +449,7 @@ window.makeAv=(txt,cls,style)=>{const d=document.createElement('div');d.classNam
 // ── LEADERBOARD ───────────────────────────────────────────────
 function renderLB(){
   const sorted=DRAFTERS.map(d=>{const s=drafterPts(d);return{...d,tot:s.tot,rows:s.rows}}).sort((a,b)=>b.tot-a.tot);
-  let h='<div class="leader-list">';
+  let h='<div class="sec-label">Draft Point Rankings</div><div class="leader-list">';
   sorted.forEach((s,i)=>{
     const r=i+1,rc=r<=3?`r${r}`:'',rn=r===1?'🥇':r===2?'🥈':r===3?'🥉':r,lo=r>3?' lo':'';
     const wrapId=`leader-${s.name.toLowerCase().replace(/[^a-z0-9]+/g,'-')}`;
@@ -499,7 +499,7 @@ function renderSC(){
 
 // ── CAST ──────────────────────────────────────────────────────
 function renderCast(){
-  const dl=;DRAFTERS.forEach(d=>d.picks.forEach(p=>dl[p.toLowerCase()]=d.name));
+  const dl={};DRAFTERS.forEach(d=>d.picks.forEach(p=>dl[p.toLowerCase()]=d.name));
   const juryOrder=CAST.filter(c=>c.status==='jury').sort((a,b)=>(a.epOut||99)-(b.epOut||99));
 
   // Advantages panel
